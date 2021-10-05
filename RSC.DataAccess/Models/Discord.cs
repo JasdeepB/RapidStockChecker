@@ -1,0 +1,18 @@
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace RSC.Models
+{
+    public class Discord
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        public int Channel { get; set; }
+        public int Role { get; set; }
+        public int SleepTime { get; set; }
+        public string Color { get; set; }
+        public virtual Type Type { get; set; }
+    }
+}
