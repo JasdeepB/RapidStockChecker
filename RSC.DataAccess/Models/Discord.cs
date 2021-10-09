@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RSC.Models
@@ -13,6 +14,7 @@ namespace RSC.Models
         public int Role { get; set; }
         public int SleepTime { get; set; }
         public string Color { get; set; }
-        public virtual Type Type { get; set; }
+        public string Name { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

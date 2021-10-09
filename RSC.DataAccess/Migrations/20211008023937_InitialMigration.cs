@@ -29,7 +29,8 @@ namespace RSC.DataAccess.Migrations
                     Channel = table.Column<int>(type: "int", nullable: false),
                     Role = table.Column<int>(type: "int", nullable: false),
                     SleepTime = table.Column<int>(type: "int", nullable: false),
-                    Color = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Color = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -43,8 +44,7 @@ namespace RSC.DataAccess.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CategoryId = table.Column<int>(type: "int", nullable: true),
-                    DiscordRef = table.Column<int>(type: "int", nullable: false)
+                    CategoryId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -55,12 +55,6 @@ namespace RSC.DataAccess.Migrations
                         principalTable: "Categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Types_Discord_DiscordRef",
-                        column: x => x.DiscordRef,
-                        principalTable: "Discord",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -74,11 +68,18 @@ namespace RSC.DataAccess.Migrations
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Url = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     InStock = table.Column<bool>(type: "bit", nullable: false),
-                    TypeId = table.Column<int>(type: "int", nullable: true)
+                    TypeId = table.Column<int>(type: "int", nullable: true),
+                    DiscordId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Products", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Products_Discord_DiscordId",
+                        column: x => x.DiscordId,
+                        principalTable: "Discord",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Products_Types_TypeId",
                         column: x => x.TypeId,
@@ -108,6 +109,11 @@ namespace RSC.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Products_DiscordId",
+                table: "Products",
+                column: "DiscordId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Products_TypeId",
                 table: "Products",
                 column: "TypeId");
@@ -121,12 +127,6 @@ namespace RSC.DataAccess.Migrations
                 name: "IX_Types_CategoryId",
                 table: "Types",
                 column: "CategoryId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Types_DiscordRef",
-                table: "Types",
-                column: "DiscordRef",
-                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -138,13 +138,13 @@ namespace RSC.DataAccess.Migrations
                 name: "Products");
 
             migrationBuilder.DropTable(
+                name: "Discord");
+
+            migrationBuilder.DropTable(
                 name: "Types");
 
             migrationBuilder.DropTable(
                 name: "Categories");
-
-            migrationBuilder.DropTable(
-                name: "Discord");
         }
     }
 }

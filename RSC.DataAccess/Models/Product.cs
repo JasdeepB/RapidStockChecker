@@ -21,6 +21,7 @@ namespace RSC.Models
         public string Url { get; set; }
         public bool InStock { get; set; }
         public virtual Type Type { get; set; }
+        public virtual Discord Discord { get; set; }
         public virtual ICollection<RestockHistory> RestockHistory { get; set; }
     }
 }

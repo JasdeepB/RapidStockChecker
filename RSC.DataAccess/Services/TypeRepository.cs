@@ -15,6 +15,18 @@ namespace RSC.DataAccess.Services
             this.dbContext = dbContext;
         }
 
+        public bool CreateType(Models.Type type)
+        {
+            this.dbContext.Add(type);
+            return Save();
+        }
+
+        public bool DeleteType(Models.Type type)
+        {
+            this.dbContext.Remove(type);
+            return Save();
+        }
+
         public ICollection<Models.Type> GetAllTypes()
         {
             return this.dbContext.Types
@@ -22,10 +34,60 @@ namespace RSC.DataAccess.Services
                 .ToList();
         }
 
-        public ICollection<Product> GetProductFromAType(int typeId)
+        public Category GetCategoryOfAnType(int typeId)
+        {
+            return this.dbContext
+                .Types
+                .Where(t => t.Id == typeId)
+                .Select(c => c.Category)
+                .FirstOrDefault();
+        }
+
+        public Category GetCategoryOfAnType(string typeName)
+        {
+            return this.dbContext
+                .Types
+                .Where(t => t.Name == typeName)
+                .Select(c => c.Category)
+                .FirstOrDefault();
+        }
+
+/*        public Discord GetDiscordOfAnType(int typeId)
+        {
+            return this.dbContext
+                .Types
+                .Where(t => t.Id == typeId)
+                .Select(d => d.Discord)
+                .FirstOrDefault();
+        }
+
+
+        public Discord GetDiscordOfAnType(string typeName)
+        {
+            return this.dbContext
+                .Types
+                .Where(t => t.Name == typeName)
+                .Select(d => d.Discord)
+                .FirstOrDefault();
+        }*/
+
+        /// <summary>
+        /// Retrieves all product associated with a type using the type ID
+        /// </summary>
+        public ICollection<Product> GetProductsFromAType(int typeId)
         {
             return this.dbContext.Products
                 .Where(t => t.Type.Id == typeId)
+                .ToList();
+        }
+
+        /// <summary>
+        /// Retrieves all product associated with a type using the name of the type
+        /// </summary>
+        public ICollection<Product> GetProductsFromAType(string typeName)
+        {
+            return this.dbContext.Products
+                .Where(t => t.Type.Name == typeName)
                 .ToList();
         }
 
@@ -36,6 +98,16 @@ namespace RSC.DataAccess.Services
                 .FirstOrDefault();
         }
 
+        public Models.Type GetType(string typeName)
+        {
+            return this.dbContext.Types
+                .Where(t => t.Name == typeName)
+                .FirstOrDefault();
+        }
+
+        /// <summary>
+        /// Retrieves the type ID of a given product
+        /// </summary>
         public Models.Type GetTypeOfAnProduct(int productId)
         {
             return this.dbContext.Products
@@ -44,10 +116,39 @@ namespace RSC.DataAccess.Services
                 .FirstOrDefault();
         }
 
+        public bool IsDuplicateType(int typeId, string typeName)
+        {
+            var type = this.dbContext
+                .Types
+                .Where(t => t.Name.Trim().ToUpper() == typeName.Trim().ToUpper()
+                 && t.Id != typeId)
+                .FirstOrDefault();
+
+            return type == null ? false : true;
+        }
+
+        public bool Save()
+        {
+            var saved = this.dbContext.SaveChanges();
+            return saved >= 0 ? true : false;
+        }
+
         public bool TypeExists(int typeId)
         {
             return this.dbContext.Types
                 .Any(t => t.Id == typeId);
+        }
+
+        public bool TypeExists(string typeName)
+        {
+            return this.dbContext.Types
+                .Any(t => t.Name == typeName);
+        }
+
+        public bool UpdateType(Models.Type type)
+        {
+            this.dbContext.Update(type);
+            return Save();
         }
     }
 }

@@ -1,9 +1,5 @@
 ﻿using RSC.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RSC.DataAccess.Services
 {
@@ -11,8 +7,20 @@ namespace RSC.DataAccess.Services
     {
         ICollection<RSC.Models.Type> GetAllTypes();
         RSC.Models.Type GetType(int typeId);
+        RSC.Models.Type GetType(string typeName);
         RSC.Models.Type GetTypeOfAnProduct(int productId);
-        ICollection<Product> GetProductFromAType(int typeId);
+/*        Discord GetDiscordOfAnType(int typeId);
+        Discord GetDiscordOfAnType(string typeName);*/
+        Category GetCategoryOfAnType(int typeId);
+        Category GetCategoryOfAnType(string typeName);
+        ICollection<Product> GetProductsFromAType(int typeId);
+        ICollection<Product> GetProductsFromAType(string typeName);
+        bool IsDuplicateType(int typeId, string typeName);
+        bool CreateType(Type type);
+        bool UpdateType(Type type);
+        bool DeleteType(Type type);
+        bool Save();
         bool TypeExists(int typeId);
+        bool TypeExists(string typeName);
     }
 }

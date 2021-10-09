@@ -10,7 +10,7 @@ using RapidStockChecker.DataAccess;
 namespace RSC.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211003225006_InitialMigration")]
+    [Migration("20211008023937_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,7 +21,7 @@ namespace RSC.DataAccess.Migrations
                 .HasAnnotation("ProductVersion", "5.0.10")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("RSC.Models.Models.Category", b =>
+            modelBuilder.Entity("RSC.Models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -36,7 +36,7 @@ namespace RSC.DataAccess.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("RSC.Models.Models.Discord", b =>
+            modelBuilder.Entity("RSC.Models.Discord", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -47,6 +47,9 @@ namespace RSC.DataAccess.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Color")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Role")
@@ -60,12 +63,15 @@ namespace RSC.DataAccess.Migrations
                     b.ToTable("Discord");
                 });
 
-            modelBuilder.Entity("RSC.Models.Models.Product", b =>
+            modelBuilder.Entity("RSC.Models.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("DiscordId")
+                        .HasColumnType("int");
 
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
@@ -88,12 +94,14 @@ namespace RSC.DataAccess.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("DiscordId");
+
                     b.HasIndex("TypeId");
 
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("RSC.Models.Models.RestockHistory", b =>
+            modelBuilder.Entity("RSC.Models.RestockHistory", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -113,7 +121,7 @@ namespace RSC.DataAccess.Migrations
                     b.ToTable("RestockHistory");
                 });
 
-            modelBuilder.Entity("RSC.Models.Models.Type", b =>
+            modelBuilder.Entity("RSC.Models.Type", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -123,9 +131,6 @@ namespace RSC.DataAccess.Migrations
                     b.Property<int?>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<int>("DiscordRef")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -133,63 +138,58 @@ namespace RSC.DataAccess.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("DiscordRef")
-                        .IsUnique();
-
                     b.ToTable("Types");
                 });
 
-            modelBuilder.Entity("RSC.Models.Models.Product", b =>
+            modelBuilder.Entity("RSC.Models.Product", b =>
                 {
-                    b.HasOne("RSC.Models.Models.Type", "Type")
+                    b.HasOne("RSC.Models.Discord", "Discord")
+                        .WithMany("Products")
+                        .HasForeignKey("DiscordId");
+
+                    b.HasOne("RSC.Models.Type", "Type")
                         .WithMany("Products")
                         .HasForeignKey("TypeId");
+
+                    b.Navigation("Discord");
 
                     b.Navigation("Type");
                 });
 
-            modelBuilder.Entity("RSC.Models.Models.RestockHistory", b =>
+            modelBuilder.Entity("RSC.Models.RestockHistory", b =>
                 {
-                    b.HasOne("RSC.Models.Models.Product", "Product")
+                    b.HasOne("RSC.Models.Product", "Product")
                         .WithMany("RestockHistory")
                         .HasForeignKey("ProductId");
 
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("RSC.Models.Models.Type", b =>
+            modelBuilder.Entity("RSC.Models.Type", b =>
                 {
-                    b.HasOne("RSC.Models.Models.Category", "Category")
+                    b.HasOne("RSC.Models.Category", "Category")
                         .WithMany("Types")
                         .HasForeignKey("CategoryId");
 
-                    b.HasOne("RSC.Models.Models.Discord", "Discord")
-                        .WithOne("Type")
-                        .HasForeignKey("RSC.Models.Models.Type", "DiscordRef")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Category");
-
-                    b.Navigation("Discord");
                 });
 
-            modelBuilder.Entity("RSC.Models.Models.Category", b =>
+            modelBuilder.Entity("RSC.Models.Category", b =>
                 {
                     b.Navigation("Types");
                 });
 
-            modelBuilder.Entity("RSC.Models.Models.Discord", b =>
+            modelBuilder.Entity("RSC.Models.Discord", b =>
                 {
-                    b.Navigation("Type");
+                    b.Navigation("Products");
                 });
 
-            modelBuilder.Entity("RSC.Models.Models.Product", b =>
+            modelBuilder.Entity("RSC.Models.Product", b =>
                 {
                     b.Navigation("RestockHistory");
                 });
 
-            modelBuilder.Entity("RSC.Models.Models.Type", b =>
+            modelBuilder.Entity("RSC.Models.Type", b =>
                 {
                     b.Navigation("Products");
                 });

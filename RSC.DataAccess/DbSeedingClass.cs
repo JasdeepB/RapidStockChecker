@@ -19,13 +19,6 @@ namespace RSC.DataAccess
                         new Models.Type
                         {
                             Name = "RTX 3080",
-                            Discord = new Discord()
-                            {
-                                Channel = 123,
-                                Role = 789,
-                                SleepTime = 60000,
-                                Color = "green"
-                            },
                             Products = new List<Product>()
                             {
                                 new Product()
@@ -35,6 +28,14 @@ namespace RSC.DataAccess
                                     Title = "MSI RTX 3080",
                                     Url = "Amazon.com/ABCD=tag:RSC",
                                     InStock = false,
+                                    Discord = new Discord()
+                                    {
+                                        Channel = 123,
+                                        Role = 789,
+                                        SleepTime = 60000,
+                                        Color = "green",
+                                        Name = "RTX 3080"
+                                    },
                                     RestockHistory = new List<RestockHistory>()
                                     {
                                         new RestockHistory
@@ -54,6 +55,14 @@ namespace RSC.DataAccess
                                     ImageUrl = "screenshot.best",
                                     Url = "Amazon.com/EFGH=tag:RSC",
                                     InStock = true,
+                                    Discord = new Discord()
+                                    {
+                                        Channel = 123,
+                                        Role = 789,
+                                        SleepTime = 60000,
+                                        Color = "green",
+                                        Name = "RTX 3080"
+                                    },
                                     RestockHistory = new List<RestockHistory>()
                                     {
                                         new RestockHistory
@@ -71,13 +80,6 @@ namespace RSC.DataAccess
                         new Models.Type
                         {
                             Name = "RTX 3070",
-                            Discord = new Discord()
-                            {
-                                Channel = 963,
-                                Role = 369,
-                                SleepTime = 60000,
-                                Color = "silver"
-                            },
                             Products = new List<Product>()
                             {
                                 new Product()
@@ -87,6 +89,14 @@ namespace RSC.DataAccess
                                     ImageUrl = "screenshot.best",
                                     Url = "Amazon.com/FGFG=tag:RSC",
                                     InStock = true,
+                                    Discord = new Discord()
+                                    {
+                                        Channel = 963,
+                                        Role = 369,
+                                        SleepTime = 60000,
+                                        Color = "silver",
+                                        Name = "RTX 3070"
+                                    },
                                     RestockHistory = new List<RestockHistory>()
                                     {
                                         new RestockHistory
@@ -106,6 +116,14 @@ namespace RSC.DataAccess
                                     ImageUrl = "screenshot.best",
                                     Url = "Amazon.com/EFGH=tag:RSC",
                                     InStock = false,
+                                    Discord = new Discord()
+                                    {
+                                        Channel = 963,
+                                        Role = 369,
+                                        SleepTime = 60000,
+                                        Color = "silver",
+                                        Name = "RTX 3070"
+                                    },
                                     RestockHistory = new List<RestockHistory>()
                                     {
                                         new RestockHistory
@@ -130,13 +148,6 @@ namespace RSC.DataAccess
                         new Models.Type
                         {
                             Name = "RX 6800XT",
-                            Discord = new Discord()
-                            {
-                                Channel = 456,
-                                Role = 741,
-                                SleepTime = 60000,
-                                Color = "red"
-                            },
                             Products = new List<Product>()
                             {
                                 new Product()
@@ -146,6 +157,14 @@ namespace RSC.DataAccess
                                     ImageUrl = "screenshot.best",
                                     Url = "Amazon.com/IJKL=tag:RSC",
                                     InStock = true,
+                                    Discord = new Discord()
+                                    {
+                                        Channel = 456,
+                                        Role = 741,
+                                        SleepTime = 60000,
+                                        Color = "red",
+                                        Name = "RX 6800XT"
+                                    },
                                     RestockHistory = new List<RestockHistory>()
                                     {
                                         new RestockHistory
@@ -165,6 +184,14 @@ namespace RSC.DataAccess
                                     ImageUrl = "screenshot.best",
                                     Url = "Amazon.com/MNOP=tag:RSC",
                                     InStock = false,
+                                    Discord = new Discord()
+                                    {
+                                        Channel = 456,
+                                        Role = 741,
+                                        SleepTime = 60000,
+                                        Color = "red",
+                                        Name = "RX 6800XT"
+                                    },
                                     RestockHistory = new List<RestockHistory>()
                                     {
                                         new RestockHistory
@@ -184,6 +211,14 @@ namespace RSC.DataAccess
                                     ImageUrl = "screenshot.best",
                                     Url = "Amazon.com/QRST=tag:RSC",
                                     InStock = true,
+                                    Discord = new Discord()
+                                    {
+                                        Channel = 456,
+                                        Role = 741,
+                                        SleepTime = 60000,
+                                        Color = "red",
+                                        Name = "RX 6800XT"
+                                    },
                                     RestockHistory = new List<RestockHistory>()
                                     {
                                         new RestockHistory

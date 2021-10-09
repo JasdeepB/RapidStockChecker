@@ -29,10 +29,16 @@ namespace RapidStockCheckerAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc().AddNewtonsoftJson(o => o.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
             services.AddMvc();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<ITypeRepository, TypeRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IDiscordRepository, DiscordRepository>();
+            services.AddScoped<IRestockHistoryRepository, RestockHistoryRepository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "RapidStockCheckerAPI", Version = "v1" });
