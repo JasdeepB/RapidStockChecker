@@ -1,5 +1,3 @@
-using System;
-
 namespace RapidStockChecker.Models
 {
     public class ErrorViewModel

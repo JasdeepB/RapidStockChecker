@@ -2,7 +2,6 @@
 using RSC.DataAccess.Dtos;
 using RSC.DataAccess.Services;
 using RSC.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -203,7 +202,7 @@ namespace RapidStockCheckerAPI.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(422)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> CreateProductAsync(string SKU,[FromQuery] int discordId, [FromQuery] int typeId)
+        public async Task<IActionResult> CreateProductAsync(string SKU, [FromQuery] int discordId, [FromQuery] int typeId)
         {
             var productToCreate = await this.productRepository.CreateProduct(SKU, discordId, typeId);
 

@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RSC.DataAccess.Services;
 using RSC.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace RapidStockCheckerAPI.Controllers
 {

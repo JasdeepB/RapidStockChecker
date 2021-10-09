@@ -1,6 +1,5 @@
 ﻿using RapidStockChecker.DataAccess;
 using RSC.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -52,24 +51,24 @@ namespace RSC.DataAccess.Services
                 .FirstOrDefault();
         }
 
-/*        public Discord GetDiscordOfAnType(int typeId)
-        {
-            return this.dbContext
-                .Types
-                .Where(t => t.Id == typeId)
-                .Select(d => d.Discord)
-                .FirstOrDefault();
-        }
+        /*        public Discord GetDiscordOfAnType(int typeId)
+                {
+                    return this.dbContext
+                        .Types
+                        .Where(t => t.Id == typeId)
+                        .Select(d => d.Discord)
+                        .FirstOrDefault();
+                }
 
 
-        public Discord GetDiscordOfAnType(string typeName)
-        {
-            return this.dbContext
-                .Types
-                .Where(t => t.Name == typeName)
-                .Select(d => d.Discord)
-                .FirstOrDefault();
-        }*/
+                public Discord GetDiscordOfAnType(string typeName)
+                {
+                    return this.dbContext
+                        .Types
+                        .Where(t => t.Name == typeName)
+                        .Select(d => d.Discord)
+                        .FirstOrDefault();
+                }*/
 
         /// <summary>
         /// Retrieves all product associated with a type using the type ID

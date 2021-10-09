@@ -9,8 +9,8 @@ namespace RSC.DataAccess.Services
         RSC.Models.Type GetType(int typeId);
         RSC.Models.Type GetType(string typeName);
         RSC.Models.Type GetTypeOfAnProduct(int productId);
-/*        Discord GetDiscordOfAnType(int typeId);
-        Discord GetDiscordOfAnType(string typeName);*/
+        /*        Discord GetDiscordOfAnType(int typeId);
+                Discord GetDiscordOfAnType(string typeName);*/
         Category GetCategoryOfAnType(int typeId);
         Category GetCategoryOfAnType(string typeName);
         ICollection<Product> GetProductsFromAType(int typeId);

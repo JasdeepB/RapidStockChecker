@@ -2,10 +2,8 @@
 using RSC.DataAccess.Dtos;
 using RSC.DataAccess.Services;
 using RSC.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace RapidStockCheckerAPI.Controllers
 {
@@ -78,7 +76,7 @@ namespace RapidStockCheckerAPI.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(422)]
         [ProducesResponseType(500)]
-        public IActionResult CreateCategory([FromBody]Category categoryToCreate)
+        public IActionResult CreateCategory([FromBody] Category categoryToCreate)
         {
             if (categoryToCreate == null)
             {

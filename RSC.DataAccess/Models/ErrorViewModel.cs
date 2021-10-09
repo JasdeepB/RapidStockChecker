@@ -1,5 +1,3 @@
-using System;
-
 namespace RSC.Models
 {
     public class ErrorViewModel
