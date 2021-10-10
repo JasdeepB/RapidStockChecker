@@ -14,19 +14,19 @@ namespace RSC.DataAccess.Services
             this.dbContext = dbContext;
         }
 
-        public bool CreateType(Models.Type type)
+        public bool CreateType(RSC.Models.Type type)
         {
             this.dbContext.Add(type);
             return Save();
         }
 
-        public bool DeleteType(Models.Type type)
+        public bool DeleteType(RSC.Models.Type type)
         {
             this.dbContext.Remove(type);
             return Save();
         }
 
-        public ICollection<Models.Type> GetAllTypes()
+        public ICollection<RSC.Models.Type> GetAllTypes()
         {
             return this.dbContext.Types
                 .OrderBy(t => t.Name)
@@ -90,14 +90,14 @@ namespace RSC.DataAccess.Services
                 .ToList();
         }
 
-        public Models.Type GetType(int typeId)
+        public RSC.Models.Type GetType(int typeId)
         {
             return this.dbContext.Types
                 .Where(t => t.Id == typeId)
                 .FirstOrDefault();
         }
 
-        public Models.Type GetType(string typeName)
+        public RSC.Models.Type GetType(string typeName)
         {
             return this.dbContext.Types
                 .Where(t => t.Name == typeName)
@@ -107,7 +107,7 @@ namespace RSC.DataAccess.Services
         /// <summary>
         /// Retrieves the type ID of a given product
         /// </summary>
-        public Models.Type GetTypeOfAnProduct(int productId)
+        public RSC.Models.Type GetTypeOfAnProduct(int productId)
         {
             return this.dbContext.Products
                 .Where(p => p.Id == productId)
@@ -144,7 +144,7 @@ namespace RSC.DataAccess.Services
                 .Any(t => t.Name == typeName);
         }
 
-        public bool UpdateType(Models.Type type)
+        public bool UpdateType(RSC.Models.Type type)
         {
             this.dbContext.Update(type);
             return Save();

@@ -2,6 +2,7 @@
 using RSC.DataAccess.Dtos;
 using RSC.DataAccess.Services;
 using RSC.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -27,24 +28,32 @@ namespace RapidStockCheckerAPI.Controllers
         [ProducesResponseType(200, Type = typeof(IEnumerable<TypeDto>))]
         public IActionResult GetAllTypes()
         {
-            var types = this.typeRepository.GetAllTypes().ToList();
-
-            if (ModelState.IsValid == false)
+            try
             {
-                return BadRequest(ModelState);
-            }
+                var types = this.typeRepository.GetAllTypes().ToList();
 
-            var typesDto = new List<TypeDto>();
-
-            foreach (var type in types)
-            {
-                typesDto.Add(new TypeDto
+                if (ModelState.IsValid == false)
                 {
-                    Id = type.Id,
-                    Name = type.Name,
-                });
+                    return BadRequest(ModelState);
+                }
+
+                var typesDto = new List<TypeDto>();
+
+                foreach (var type in types)
+                {
+                    typesDto.Add(new TypeDto
+                    {
+                        Id = type.Id,
+                        Name = type.Name,
+                    });
+                }
+                return Ok(typesDto);
             }
-            return Ok(typesDto);
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return BadRequest(ex);
+            }
         }
 
         [HttpGet("{typeId}", Name = "GetType")]

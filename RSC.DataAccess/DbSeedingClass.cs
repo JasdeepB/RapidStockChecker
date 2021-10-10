@@ -16,7 +16,7 @@ namespace RSC.DataAccess
                     Name = "RTX 30 Series Graphics Cards",
                     Types = new List<RSC.Models.Type>()
                     {
-                        new Models.Type
+                        new RSC.Models.Type
                         {
                             Name = "RTX 3080",
                             Products = new List<Product>()
@@ -77,7 +77,7 @@ namespace RSC.DataAccess
                                 }
                             }
                         },
-                        new Models.Type
+                        new RSC.Models.Type
                         {
                             Name = "RTX 3070",
                             Products = new List<Product>()
@@ -145,7 +145,7 @@ namespace RSC.DataAccess
                     Name = "AMD Radeon 6000 Series Graphics Cards",
                     Types = new List<RSC.Models.Type>()
                     {
-                        new Models.Type
+                        new RSC.Models.Type
                         {
                             Name = "RX 6800XT",
                             Products = new List<Product>()

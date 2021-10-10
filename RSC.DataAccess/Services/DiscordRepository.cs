@@ -43,6 +43,15 @@ namespace RSC.DataAccess.Services
                 .FirstOrDefault();
         }
 
+        public Discord GetDiscordOfAnProduct(string SKU)
+        {
+            return this.dbContext
+                .Products
+                .Where(p => p.SKU == SKU)
+                .Select(d => d.Discord)
+                .FirstOrDefault();
+        }
+
         int IDiscordRepository.GetDiscordInt(int discordId)
         {
             return this.dbContext

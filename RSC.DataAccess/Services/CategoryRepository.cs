@@ -32,7 +32,7 @@ namespace RSC.DataAccess.Services
             return Save();
         }
 
-        public ICollection<Models.Type> GetAllTypesForCategory(int categoryId)
+        public ICollection<RSC.Models.Type> GetAllTypesForCategory(int categoryId)
         {
             var v = this.dbContext
                 .Types

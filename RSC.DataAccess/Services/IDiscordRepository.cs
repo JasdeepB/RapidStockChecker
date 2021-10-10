@@ -8,6 +8,7 @@ namespace RSC.DataAccess.Services
         ICollection<Discord> GetAllDiscords();
         Discord GetDiscord(int discordId);
         int GetDiscordInt(int discordId);
+        Discord GetDiscordOfAnProduct(string SKU);
         bool DiscordExists(int discordId);
         bool DiscordExists(string discordName);
     }

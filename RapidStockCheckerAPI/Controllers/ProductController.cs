@@ -52,6 +52,47 @@ namespace RapidStockCheckerAPI.Controllers
             return Ok(productList);
         }
 
+        [HttpGet("/Product/discord")]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Product>))]
+        public IActionResult GetProductsForDiscord()
+        {
+            if (ModelState.IsValid == false)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var products = this.productRepository.GetAllProductsInStock();
+
+            var productList = new List<Product>();
+
+            foreach (var prod in products)
+            {
+                productList.Add(new Product
+                {
+                    Id = prod.Id,
+                    SKU = prod.SKU,
+                    Title = prod.Title,
+                    ImageUrl = prod.ImageUrl,
+                    Url = prod.Url,
+                    InStock = prod.InStock,
+                    Discord = GetDiscordDto(this.discordRepository.GetDiscordOfAnProduct(prod.SKU))
+                });
+            }
+            return Ok(productList);
+        }
+
+        private Discord GetDiscordDto(Discord discord)
+        {
+            return new Discord()
+            {
+                Channel = discord.Channel,
+                Role = discord.Role,
+                SleepTime = discord.SleepTime,
+                Color = discord.Color
+            };
+        }
+
         [HttpGet("SKU", Name = "GetProduct")]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
