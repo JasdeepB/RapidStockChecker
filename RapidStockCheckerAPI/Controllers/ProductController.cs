@@ -46,7 +46,8 @@ namespace RapidStockCheckerAPI.Controllers
                     Title = prod.Title,
                     ImageUrl = prod.ImageUrl,
                     Url = prod.Url,
-                    InStock = prod.InStock
+                    InStock = prod.InStock,
+                    Retailer = prod.Retailer
                 });
             }
             return Ok(productList);
@@ -74,6 +75,7 @@ namespace RapidStockCheckerAPI.Controllers
                     SKU = prod.SKU,
                     Title = prod.Title,
                     ImageUrl = prod.ImageUrl,
+                    Retailer = prod.Retailer,
                     Url = prod.Url,
                     InStock = prod.InStock,
                     Discord = GetDiscordDto(this.discordRepository.GetDiscordOfAnProduct(prod.SKU))
@@ -118,13 +120,51 @@ namespace RapidStockCheckerAPI.Controllers
                 Title = product.Title,
                 ImageUrl = product.ImageUrl,
                 Url = product.Url,
+                Retailer = product.Retailer,
                 InStock = product.InStock
             };
 
             return Ok(ProductDto);
         }
 
-        [HttpGet("{productId}/retockHistory")]
+        [HttpGet("typeId")]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(200, Type = typeof(ProductDto))]
+        public IActionResult GetProductsByType(int typeId)
+        {
+            if (this.typeRepository.TypeExists(typeId) == false)
+            {
+                return NotFound();
+            }
+
+            var products = this.productRepository.GetAllProductsByType(typeId);
+
+            if (ModelState.IsValid == false)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var productList = new List<ProductDto>();
+
+            foreach (var value in products)
+            {
+                productList.Add(new ProductDto
+                {
+                    Id = value.Id,
+                    SKU = value.SKU,
+                    Title = value.Title,
+                    ImageUrl = value.ImageUrl,
+                    Url = value.Url,
+                    Retailer = value.Retailer,
+                    InStock = value.InStock
+                }); 
+            }
+
+            return Ok(productList);
+        }
+
+/*        [HttpGet("{productId}/retockHistory")]
         [ProducesResponseType(400)]
         [ProducesResponseType(200, Type = typeof(IEnumerable<RestockHistory>))]
         public IActionResult GetRestockHistory(int productId)
@@ -152,9 +192,9 @@ namespace RapidStockCheckerAPI.Controllers
                 });
             }
             return Ok(restockHistory);
-        }
+        }*/
 
-        [HttpGet("SKU/retockHistory")]
+/*        [HttpGet("SKU/retockHistory")]
         [ProducesResponseType(400)]
         [ProducesResponseType(200, Type = typeof(IEnumerable<RestockHistory>))]
         public IActionResult GetRestockHistory(string SKU)
@@ -182,7 +222,7 @@ namespace RapidStockCheckerAPI.Controllers
                 });
             }
             return Ok(restockHistory);
-        }
+        }*/
 
         [HttpPost]
         [ProducesResponseType(201, Type = typeof(Product))]

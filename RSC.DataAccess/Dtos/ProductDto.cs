@@ -7,6 +7,7 @@
         public string Title { get; set; }
         public string ImageUrl { get; set; }
         public string Url { get; set; }
+        public string Retailer { get; set; }
         public bool InStock { get; set; }
     }
 }

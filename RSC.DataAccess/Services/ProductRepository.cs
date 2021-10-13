@@ -37,6 +37,7 @@ namespace RSC.DataAccess.Services
                 product.Title = result.ItemsResult.Items[0].ItemInfo.Title.DisplayValue;
                 product.ImageUrl = result.ItemsResult.Items[0].Images.Primary.Large.URL;
                 product.Url = result.ItemsResult.Items[0].DetailPageURL;
+                product.Retailer = "Amazon";
                 product.InStock = false;
 
                 product.Discord = new Discord() { Id = discordId };
@@ -57,6 +58,14 @@ namespace RSC.DataAccess.Services
             return this.dbContext
                 .Products
                 .OrderBy(p => p.Title)
+                .ToList();
+        }
+
+        public ICollection<Product> GetAllProductsByType(int typeId)
+        {
+            return this.dbContext
+                .Products
+                .Where(p => p.Type.Id == typeId)
                 .ToList();
         }
 
@@ -82,23 +91,23 @@ namespace RSC.DataAccess.Services
                 .FirstOrDefault();
         }
 
-        public ICollection<RestockHistory> GetRestockHistory(int productId)
+/*        public ICollection<RestockHistory> GetRestockHistory(int productId)
         {
             return this.dbContext
                 .RestockHistory
                 .Where(h => h.Product.Id == productId)
                 .OrderBy(hs => hs.DateTime)
                 .ToList();
-        }
+        }*/
 
-        public ICollection<RestockHistory> GetRestockHistory(string SKU)
+/*        public ICollection<RestockHistory> GetRestockHistory(string SKU)
         {
             return this.dbContext
                 .RestockHistory
                 .Where(h => h.Product.SKU == SKU)
                 .OrderBy(hs => hs.DateTime)
                 .ToList();
-        }
+        }*/
 
         public bool IsDuplicateProduct(int productId, string productSKU)
         {

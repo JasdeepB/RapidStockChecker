@@ -277,6 +277,7 @@ namespace RapidStockCheckerAPI.Controllers
                     Title = prod.Title,
                     ImageUrl = prod.ImageUrl,
                     Url = prod.Url,
+                    Retailer = prod.Retailer,
                     InStock = prod.InStock
                 });
             }
@@ -306,6 +307,7 @@ namespace RapidStockCheckerAPI.Controllers
                     Title = prod.Title,
                     ImageUrl = prod.ImageUrl,
                     Url = prod.Url,
+                    Retailer = prod.Retailer,
                     InStock = prod.InStock
                 });
             }

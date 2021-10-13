@@ -26,6 +26,7 @@ namespace RSC.DataAccess
                                     SKU = "ABCD",
                                     ImageUrl = "screenshot.best",
                                     Title = "MSI RTX 3080",
+                                    Retailer = "Amazon",
                                     Url = "Amazon.com/ABCD=tag:RSC",
                                     InStock = false,
                                     Discord = new Discord()
@@ -35,17 +36,6 @@ namespace RSC.DataAccess
                                         SleepTime = 60000,
                                         Color = "green",
                                         Name = "RTX 3080"
-                                    },
-                                    RestockHistory = new List<RestockHistory>()
-                                    {
-                                        new RestockHistory
-                                        {
-                                            DateTime = DateTime.Now
-                                        },
-                                        new RestockHistory
-                                        {
-                                        DateTime = DateTime.UtcNow
-                                        }
                                     }
                                 },
                                 new Product()
@@ -54,6 +44,7 @@ namespace RSC.DataAccess
                                     Title = "EVGA RTX 3080",
                                     ImageUrl = "screenshot.best",
                                     Url = "Amazon.com/EFGH=tag:RSC",
+                                    Retailer = "Amazon",
                                     InStock = true,
                                     Discord = new Discord()
                                     {
@@ -62,18 +53,20 @@ namespace RSC.DataAccess
                                         SleepTime = 60000,
                                         Color = "green",
                                         Name = "RTX 3080"
-                                    },
-                                    RestockHistory = new List<RestockHistory>()
-                                    {
-                                        new RestockHistory
-                                        {
-                                            DateTime = DateTime.Now.AddDays(3)
-                                        },
-                                        new RestockHistory
-                                        {
-                                            DateTime = DateTime.UtcNow.AddDays(6)
-                                        }
                                     }
+                                }
+                            },
+                            RestockHistory = new List<RestockHistory>()
+                            {
+                                new RestockHistory
+                                {
+                                    Name = "RTX 3080",
+                                    DateTime = DateTime.Now
+                                },
+                                new RestockHistory
+                                {
+                                    Name = "RTX 3080",
+                                    DateTime = DateTime.UtcNow
                                 }
                             }
                         },
@@ -88,6 +81,7 @@ namespace RSC.DataAccess
                                     Title = "ASUS RTX 3070",
                                     ImageUrl = "screenshot.best",
                                     Url = "Amazon.com/FGFG=tag:RSC",
+                                    Retailer = "Amazon",
                                     InStock = true,
                                     Discord = new Discord()
                                     {
@@ -96,18 +90,7 @@ namespace RSC.DataAccess
                                         SleepTime = 60000,
                                         Color = "silver",
                                         Name = "RTX 3070"
-                                    },
-                                    RestockHistory = new List<RestockHistory>()
-                                    {
-                                        new RestockHistory
-                                        {
-                                            DateTime = DateTime.Now.AddDays(3)
-                                        },
-                                        new RestockHistory
-                                        {
-                                            DateTime = DateTime.UtcNow.AddDays(6)
-                                        }
-                                    },
+                                    }
                                 },
                                 new Product()
                                 {
@@ -115,6 +98,7 @@ namespace RSC.DataAccess
                                     Title = "ZOTAC RTX 3070",
                                     ImageUrl = "screenshot.best",
                                     Url = "Amazon.com/EFGH=tag:RSC",
+                                    Retailer = "Amazon",
                                     InStock = false,
                                     Discord = new Discord()
                                     {
@@ -123,20 +107,22 @@ namespace RSC.DataAccess
                                         SleepTime = 60000,
                                         Color = "silver",
                                         Name = "RTX 3070"
-                                    },
-                                    RestockHistory = new List<RestockHistory>()
-                                    {
-                                        new RestockHistory
-                                        {
-                                            DateTime = DateTime.Now.AddDays(3)
-                                        },
-                                        new RestockHistory
-                                        {
-                                            DateTime = DateTime.UtcNow.AddDays(6)
-                                        }
                                     }
                                 }
-                            }
+                            },
+                            RestockHistory = new List<RestockHistory>()
+                            {
+                                new RestockHistory
+                                {
+                                    Name = "RTX 3070",
+                                    DateTime = DateTime.Now.AddDays(3)
+                                },
+                                new RestockHistory
+                                {
+                                    Name = "RTX 3070",
+                                    DateTime = DateTime.UtcNow.AddDays(6)
+                                }
+                            },
                         }
                     }
                 },
@@ -156,6 +142,7 @@ namespace RSC.DataAccess
                                     Title = "XFX RX 6800XT",
                                     ImageUrl = "screenshot.best",
                                     Url = "Amazon.com/IJKL=tag:RSC",
+                                    Retailer = "Amazon",
                                     InStock = true,
                                     Discord = new Discord()
                                     {
@@ -164,17 +151,6 @@ namespace RSC.DataAccess
                                         SleepTime = 60000,
                                         Color = "red",
                                         Name = "RX 6800XT"
-                                    },
-                                    RestockHistory = new List<RestockHistory>()
-                                    {
-                                        new RestockHistory
-                                        {
-                                            DateTime = DateTime.Now.AddDays(3)
-                                        },
-                                        new RestockHistory
-                                        {
-                                            DateTime = DateTime.UtcNow.AddDays(6)
-                                        }
                                     }
                                 },
                                 new Product()
@@ -183,6 +159,7 @@ namespace RSC.DataAccess
                                     Title = "XFX 2 RX 6800XT",
                                     ImageUrl = "screenshot.best",
                                     Url = "Amazon.com/MNOP=tag:RSC",
+                                    Retailer = "Amazon",
                                     InStock = false,
                                     Discord = new Discord()
                                     {
@@ -191,17 +168,6 @@ namespace RSC.DataAccess
                                         SleepTime = 60000,
                                         Color = "red",
                                         Name = "RX 6800XT"
-                                    },
-                                    RestockHistory = new List<RestockHistory>()
-                                    {
-                                        new RestockHistory
-                                        {
-                                            DateTime = DateTime.Now.AddDays(3)
-                                        },
-                                        new RestockHistory
-                                        {
-                                            DateTime = DateTime.UtcNow.AddDays(6)
-                                        }
                                     }
                                 },
                                 new Product()
@@ -210,6 +176,7 @@ namespace RSC.DataAccess
                                     Title = "PNY RX 6800XT",
                                     ImageUrl = "screenshot.best",
                                     Url = "Amazon.com/QRST=tag:RSC",
+                                    Retailer = "Amazon",
                                     InStock = true,
                                     Discord = new Discord()
                                     {
@@ -218,18 +185,20 @@ namespace RSC.DataAccess
                                         SleepTime = 60000,
                                         Color = "red",
                                         Name = "RX 6800XT"
-                                    },
-                                    RestockHistory = new List<RestockHistory>()
-                                    {
-                                        new RestockHistory
-                                        {
-                                            DateTime = DateTime.Now.AddDays(3)
-                                        },
-                                        new RestockHistory
-                                        {
-                                            DateTime = DateTime.UtcNow.AddDays(6)
-                                        }
                                     }
+                                }
+                            },
+                            RestockHistory = new List<RestockHistory>()
+                            {
+                                new RestockHistory
+                                {
+                                    Name = "RX 6800XT",
+                                    DateTime = DateTime.Now.AddDays(3)
+                                },
+                                new RestockHistory
+                                {
+                                    Name = "RX 6800XT",
+                                    DateTime = DateTime.UtcNow.AddDays(6)
                                 }
                             }
                         }

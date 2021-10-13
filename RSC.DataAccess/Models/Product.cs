@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RSC.Models
@@ -15,9 +14,9 @@ namespace RSC.Models
         public string Title { get; set; }
         public string ImageUrl { get; set; }
         public string Url { get; set; }
+        public string Retailer { get; set; }
         public bool InStock { get; set; }
-        public virtual Type Type { get; set; }
+        public virtual RSC.Models.Type Type { get; set; }
         public virtual Discord Discord { get; set; }
-        public virtual ICollection<RestockHistory> RestockHistory { get; set; }
     }
 }

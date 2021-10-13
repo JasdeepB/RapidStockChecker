@@ -11,10 +11,12 @@ namespace RapidStockCheckerAPI.Controllers
     public class RestockHistoryController : Controller
     {
         private IRestockHistoryRepository historyRepository;
+        private IProductRepository productRepository;
 
-        public RestockHistoryController(IRestockHistoryRepository historyRepository)
+        public RestockHistoryController(IRestockHistoryRepository historyRepository, IProductRepository productRepository)
         {
             this.historyRepository = historyRepository;
+            this.productRepository = productRepository;
         }
 
         [HttpGet]
@@ -36,6 +38,7 @@ namespace RapidStockCheckerAPI.Controllers
                 historyList.Add(new RestockHistory
                 {
                     Id = value.Id,
+                    Name = value.Name,
                     DateTime = value.DateTime
                 });
             }

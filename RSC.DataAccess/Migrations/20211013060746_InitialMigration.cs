@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RSC.DataAccess.Migrations
 {
@@ -67,6 +67,7 @@ namespace RSC.DataAccess.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Url = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Retailer = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     InStock = table.Column<bool>(type: "bit", nullable: false),
                     TypeId = table.Column<int>(type: "int", nullable: true),
                     DiscordId = table.Column<int>(type: "int", nullable: true)
@@ -94,16 +95,17 @@ namespace RSC.DataAccess.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: true)
+                    TypeId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_RestockHistory", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_RestockHistory_Products_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "Products",
+                        name: "FK_RestockHistory_Types_TypeId",
+                        column: x => x.TypeId,
+                        principalTable: "Types",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -119,9 +121,9 @@ namespace RSC.DataAccess.Migrations
                 column: "TypeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RestockHistory_ProductId",
+                name: "IX_RestockHistory_TypeId",
                 table: "RestockHistory",
-                column: "ProductId");
+                column: "TypeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Types_CategoryId",
@@ -132,10 +134,10 @@ namespace RSC.DataAccess.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "RestockHistory");
+                name: "Products");
 
             migrationBuilder.DropTable(
-                name: "Products");
+                name: "RestockHistory");
 
             migrationBuilder.DropTable(
                 name: "Discord");

@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using RapidStockChecker.DataAccess;
+using RSC.DataAccess;
 using RSC.DataAccess.Services;
 
 namespace RapidStockCheckerAPI

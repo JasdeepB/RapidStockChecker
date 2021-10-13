@@ -77,6 +77,9 @@ namespace RSC.DataAccess.Migrations
                     b.Property<bool>("InStock")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Retailer")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("SKU")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -109,12 +112,15 @@ namespace RSC.DataAccess.Migrations
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("ProductId")
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("TypeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("TypeId");
 
                     b.ToTable("RestockHistory");
                 });
@@ -156,11 +162,11 @@ namespace RSC.DataAccess.Migrations
 
             modelBuilder.Entity("RSC.Models.RestockHistory", b =>
                 {
-                    b.HasOne("RSC.Models.Product", "Product")
+                    b.HasOne("RSC.Models.Type", "Type")
                         .WithMany("RestockHistory")
-                        .HasForeignKey("ProductId");
+                        .HasForeignKey("TypeId");
 
-                    b.Navigation("Product");
+                    b.Navigation("Type");
                 });
 
             modelBuilder.Entity("RSC.Models.Type", b =>
@@ -182,14 +188,11 @@ namespace RSC.DataAccess.Migrations
                     b.Navigation("Products");
                 });
 
-            modelBuilder.Entity("RSC.Models.Product", b =>
-                {
-                    b.Navigation("RestockHistory");
-                });
-
             modelBuilder.Entity("RSC.Models.Type", b =>
                 {
                     b.Navigation("Products");
+
+                    b.Navigation("RestockHistory");
                 });
 #pragma warning restore 612, 618
         }

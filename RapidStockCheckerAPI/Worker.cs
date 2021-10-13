@@ -35,47 +35,93 @@ namespace RapidStockCheckerAPI
 
                     List<string> products = db.Products.Select(p => p.SKU).ToList();
 
-                    Console.WriteLine($"\nChecking stock check for {products.Count} products");
+                    Console.WriteLine($"\nChecking stock for {products.Count} products");
 
                     for (int i = 0; i < products.Count; i = i + 10)
                     {
                         List<string> items = new List<string>(products.Skip(i).Take(10));
                         var result = await client.GetItemsAsync(items.ToArray());
 
-                        for (int j = 0; j < items.Count; j++)
+                        if (result.ItemsResult != null)
                         {
-                            if (result.ItemsResult.Items[j].Offers != null)
+                            for (int j = 0; j < items.Count; j++)
                             {
-                                if (result.ItemsResult.Items[j].Offers.Listings[0].MerchantInfo.Name == "Amazon.com")
+                                if (result.ItemsResult.Items[j].Offers != null)
                                 {
-                                    if (result.ItemsResult.Items[j].Offers.Listings[0].Availability.Message == "In Stock."
-                                       || result.ItemsResult.Items[j].Offers.Listings[0].Availability.Type == "Backorderable")
+                                    if (result.ItemsResult.Items[j].Offers.Listings[0].MerchantInfo.Name == "Amazon.com")
                                     {
-                                        Console.WriteLine($"{result.ItemsResult.Items[j].ItemInfo.Title.DisplayValue} was found in stock!");
-                                        Product product = db.Products.Where(p => p.SKU == result.ItemsResult.Items[j].ASIN).FirstOrDefault();
-                                        product.InStock = true;
+                                        if (result.ItemsResult.Items[j].Offers.Listings[0].Availability.Message == "In Stock."
+                                           || result.ItemsResult.Items[j].Offers.Listings[0].Availability.Type == "Backorderable")
+                                        {
+                                            Console.WriteLine($"{result.ItemsResult.Items[j].ItemInfo.Title.DisplayValue} was found in stock!");
+
+                                            Product product = db.Products.Where(p => p.SKU == result.ItemsResult.Items[j].ASIN).FirstOrDefault();
+                                            product.InStock = true;
+                                            db.Products.Update(product);
+                                            productsFound++;
+
+                                            var type = db
+                                                .Products
+                                                .Where(p => p.SKU == product.SKU)
+                                                .Select(t => t.Type)
+                                                .FirstOrDefault();
+
+                                            RestockHistory mostRecentRestock = db
+                                                .RestockHistory
+                                                .Where(h => h.Type.Id == type.Id)
+                                                .OrderByDescending(h => h.DateTime)
+                                                .FirstOrDefault();
+
+                                            if (mostRecentRestock == null)
+                                            {
+                                                RestockHistory restockHistory = new RestockHistory()
+                                                {
+                                                    Name = product.Title,
+                                                    DateTime = DateTime.UtcNow,
+                                                    Type = type
+                                                };
+
+                                                db.RestockHistory.Add(restockHistory);
+                                            }
+                                            else if (DateTime.UtcNow > mostRecentRestock.DateTime.AddMinutes(1)) //Change back to hour
+                                            {
+                                                RestockHistory restockHistory = new RestockHistory()
+                                                {
+                                                    Name = product.Title,
+                                                    DateTime = DateTime.UtcNow,
+                                                    Type = type
+                                                };
+
+                                                db.RestockHistory.Add(restockHistory);
+                                            }
+
+                                            await db.SaveChangesAsync();
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Product product = db
+                                            .Products
+                                            .Where(p => p.SKU == result.ItemsResult.Items[j].ASIN)
+                                            .FirstOrDefault();
+
+                                        product.InStock = false;
                                         db.Products.Update(product);
                                         await db.SaveChangesAsync();
-                                        productsFound++;
                                     }
                                 }
-                                else
-                                {
-                                    Product product = db.Products
-                                        .Where(p => p.SKU == result.ItemsResult.Items[j].ASIN)
-                                        .FirstOrDefault();
+                            }
 
-                                    product.InStock = false;
-                                    db.Products.Update(product);
-                                    await db.SaveChangesAsync();
-                                }
+                            if (productsFound == 0)
+                            {
+                                Console.WriteLine("No products found in stock, restarting\n");
                             }
                         }
-
-                        if (productsFound == 0)
+                        else
                         {
-                            Console.WriteLine("No products found in stock, restarting\n");
+                            Console.WriteLine("No valid ASIN(s) found");
                         }
+
                         await Task.Delay(9000);
                     }
                 }
