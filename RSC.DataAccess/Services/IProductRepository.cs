@@ -9,7 +9,7 @@ namespace RSC.DataAccess.Services
         Product GetProduct(int productId);
         Product GetProduct(string SKU);
         ICollection<Product> GetAllProducts();
-        ICollection<Product> GetAllProductsByType(int typeId);
+        ICollection<Product> GetAllProductsByTypeId(int typeId);
         Discord ProductDiscord(int productId);
         Discord ProductDiscord(string SKU);
         ICollection<Product> GetAllProductsInStock();

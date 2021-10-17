@@ -138,7 +138,7 @@ namespace RapidStockCheckerAPI.Controllers
                 return NotFound();
             }
 
-            var products = this.productRepository.GetAllProductsByType(typeId);
+            var products = this.productRepository.GetAllProductsByTypeId(typeId);
 
             if (ModelState.IsValid == false)
             {

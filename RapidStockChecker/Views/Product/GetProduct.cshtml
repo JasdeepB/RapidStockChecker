@@ -1,0 +1,43 @@
+﻿@model RSC.DataAccess.Dtos.ProductDto
+@{
+    ViewData["Title"] = "GetProduct";
+ Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <style>
+        hr {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            border: 0;
+            border-top: 10px solid rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <br />
+                <img src="@Model.ImageUrl" class="img-fluid center-block d-block mx-auto" alt="Sample Image">
+                <br />
+                <h3 class="text-center">@Model.Title</h3>
+                <br />
+                <a href="@Model.Url" class="btn btn-primary btn-lg active text-center" role="button" aria-pressed="true">Direct link</a>
+                <hr />
+                <br />
+                <p>
+                    Product prices and availability are accurate as of the date/time indicated and are subject to change.
+                    Any price and availability information displayed on Amazon.com or other retailer's website at the time of
+                    purchase will apply to the purchase of chosen product. It is the responsibility of the purchaser to verify
+                    the pricing and availability before completing the purchase. RapidStockChecker.com is a participant in the
+                    Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for
+                    sites to earn advertising fees by advertising and linking to Amazon.com. As an Amazon Associate we earn
+                    from qualifying purchases. ©2021 RapidStockChecker.com. All rights reserved. All logos and trademarks found
+                    on this site are the property of their respective owners.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+

@@ -41,6 +41,16 @@ namespace RSC.DataAccess.Services
                 .FirstOrDefault();
         }
 
+        public ICollection<RestockHistory> GetRestockHistoryByTypeId(int typeId)
+        {
+            return this.dbContext
+                .RestockHistory
+                .Where(h => h.Type.Id == typeId)
+                .OrderByDescending(h => h.DateTime)
+                .Take(10)
+                .ToList();
+        }
+
         public bool RestockHistoryExists(int historyId)
         {
             return this.dbContext

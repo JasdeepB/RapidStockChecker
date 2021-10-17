@@ -61,7 +61,7 @@ namespace RSC.DataAccess.Services
                 .ToList();
         }
 
-        public ICollection<Product> GetAllProductsByType(int typeId)
+        public ICollection<Product> GetAllProductsByTypeId(int typeId)
         {
             return this.dbContext
                 .Products

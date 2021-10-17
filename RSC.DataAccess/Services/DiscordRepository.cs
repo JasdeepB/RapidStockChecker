@@ -14,6 +14,18 @@ namespace RSC.DataAccess.Services
             this.dbContext = dbContext;
         }
 
+        public bool CreateDiscord(Discord discord)
+        {
+            this.dbContext.Add(discord);
+            return Save();
+        }
+
+        public bool DeleteDiscord(Discord discord)
+        {
+            this.dbContext.Remove(discord);
+            return Save();
+        }
+
         public bool DiscordExists(int discordId)
         {
             return this.dbContext
@@ -50,6 +62,18 @@ namespace RSC.DataAccess.Services
                 .Where(p => p.SKU == SKU)
                 .Select(d => d.Discord)
                 .FirstOrDefault();
+        }
+
+        public bool Save()
+        {
+            var saved = this.dbContext.SaveChanges();
+            return saved >= 0 ? true : false;
+        }
+
+        public bool UpdateDiscord(Discord discord)
+        {
+            this.dbContext.Update(discord);
+            return Save();
         }
 
         int IDiscordRepository.GetDiscordInt(int discordId)

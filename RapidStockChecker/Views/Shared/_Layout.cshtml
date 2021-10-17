@@ -11,7 +11,10 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">RapidStockChecker</a>
+                <a class="navbar-brand text-center" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="https://rapidstockchecker.com/static/media/rDesignDark.aae9f505.png" style="width:60px; height:60px">
+                    RapidStockChecker
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -42,9 +45,17 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted bg-primary">
+    <footer class="text-muted">
         <div class="container">
-            &copy; 2021 - RapidStockChecker - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="col-lg-12 text-center">
+                <p>
+                    &copy;2021 RapidStockChecker.com. All rights reserved. All logos and trademarks found on this
+                    site are the property of their respective owners. RapidStockChecker.com is a participant in the
+                    Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a
+                    means for sites to earn advertising fees by advertising and linking to Amazon.com. As an Amazon
+                    Associate we earn from qualifying purchases. - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                </p>
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

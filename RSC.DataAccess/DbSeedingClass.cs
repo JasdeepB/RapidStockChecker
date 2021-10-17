@@ -31,8 +31,8 @@ namespace RSC.DataAccess
                                     InStock = false,
                                     Discord = new Discord()
                                     {
-                                        Channel = 123,
-                                        Role = 789,
+                                        Channel = "123",
+                                        Role = "789",
                                         SleepTime = 60000,
                                         Color = "green",
                                         Name = "RTX 3080"
@@ -48,8 +48,8 @@ namespace RSC.DataAccess
                                     InStock = true,
                                     Discord = new Discord()
                                     {
-                                        Channel = 123,
-                                        Role = 789,
+                                        Channel = "123",
+                                        Role = "789",
                                         SleepTime = 60000,
                                         Color = "green",
                                         Name = "RTX 3080"
@@ -85,8 +85,8 @@ namespace RSC.DataAccess
                                     InStock = true,
                                     Discord = new Discord()
                                     {
-                                        Channel = 963,
-                                        Role = 369,
+                                        Channel = "963",
+                                        Role = "369",
                                         SleepTime = 60000,
                                         Color = "silver",
                                         Name = "RTX 3070"
@@ -102,8 +102,8 @@ namespace RSC.DataAccess
                                     InStock = false,
                                     Discord = new Discord()
                                     {
-                                        Channel = 963,
-                                        Role = 369,
+                                        Channel = "963",
+                                        Role = "369",
                                         SleepTime = 60000,
                                         Color = "silver",
                                         Name = "RTX 3070"
@@ -146,8 +146,8 @@ namespace RSC.DataAccess
                                     InStock = true,
                                     Discord = new Discord()
                                     {
-                                        Channel = 456,
-                                        Role = 741,
+                                        Channel = "456",
+                                        Role = "741",
                                         SleepTime = 60000,
                                         Color = "red",
                                         Name = "RX 6800XT"
@@ -163,8 +163,8 @@ namespace RSC.DataAccess
                                     InStock = false,
                                     Discord = new Discord()
                                     {
-                                        Channel = 456,
-                                        Role = 741,
+                                        Channel = "456",
+                                        Role = "741",
                                         SleepTime = 60000,
                                         Color = "red",
                                         Name = "RX 6800XT"
@@ -180,8 +180,8 @@ namespace RSC.DataAccess
                                     InStock = true,
                                     Discord = new Discord()
                                     {
-                                        Channel = 456,
-                                        Role = 741,
+                                        Channel = "456",
+                                        Role = "741",
                                         SleepTime = 60000,
                                         Color = "red",
                                         Name = "RX 6800XT"

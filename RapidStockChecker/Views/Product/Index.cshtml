@@ -3,37 +3,46 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<div class="table-responsive">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <table id="table1" class="table table-striped table table-bordered table table-hover" >
-        <thead>
-            <tr>
-                <th>Retailer</th>
-                <th>Title</th>
-                <th>Stock</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var value in Model)
-            {
-                <tr>
-                    <td class="text-left">@value.Retailer</td>
-                    <td class="text-left">
-                        <a href="@value.Url" style="color: #8ebf42">
-                            @value.Title
-                        </a>
-                    <td class="text-left">
-                        @value.InStock
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-    <a asp-controller="Product" asp-action="RTX3090"><span>RTX 3090</span></a>
-    <a asp-controller="Category" asp-action="Index"><span>Category - Index Page</span></a>
-    <script type="text/javascript">
-        $('td:contains("True")').css('color', 'yellow').html("In Stock!");
-        $('td:contains("False")').css('color', 'red').html("Out of Stock");
-    </script>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="table-responsive">
+                <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+                <table id="table1" class="table table-striped table table-bordered table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Retailer</th>
+                            <th>Name</th>
+                            <th>Stock Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var value in Model)
+                        {
+                            <tr>
+                                <td class="text-left">@value.Retailer</td>
+                                <td class="text-left">
+                                    <a href="@value.Url" style="color: #8ebf42">
+                                        @value.Title
+                                    </a>
+                                <td class="text-left">
+                                    @value.InStock
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <script type="text/javascript">
+                    $('td:contains("True")').css('color', 'yellow').html("In Stock!");
+                    $('td:contains("False")').css('color', 'red').html("Out of Stock");
+                </script>
+            </div>
+        </div>
+        <div class="col">
+            <a asp-controller="Product" asp-action="RTX3090"><span>RTX 3090</span></a>
+            <br />
+            <a asp-controller="Category" asp-action="Index"><span>Category - Index Page</span></a>
+        </div>
+    </div>
 </div>
+

@@ -1,8 +1,75 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<head>
+    <style>
+        .image-list-small {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0 auto;
+            text-align: center;
+            max-width: 640px;
+            padding: 0;
+        }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+            .image-list-small li {
+                display: inline-block;
+                width: 181px;
+                margin: 0 12px 30px;
+            }
+    </style>
+</head>
+<body>
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>
+
+    <ul class="image-list-small">
+        <li>
+            <img class="img-fluid" src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-600-p@2x.png"
+                 style="width: 180px; height: 80px;">
+                <h3><a asp-controller="Product" asp-action="RTX3090">RTX 3090</a></h3>
+                <p class="image-author">GeForce 30 Series</p>
+        </li>
+        <li>
+            <img class="img-fluid" src="https://logos-world.net/wp-content/uploads/2020/12/Discord-Logo.png"
+                 style="width: 70px; height: 40px;">
+            <div class="details">
+                <h3><a href="#">Industrial</a></h3>
+                <p class="image-author">Earnest Leming</p>
+            </div>
+        </li>
+        <li>
+            <img class="img-fluid" src="https://logos-world.net/wp-content/uploads/2020/12/Discord-Logo.png"
+                 style="width: 70px; height: 40px;">
+            <div class="details">
+                <h3><a href="#">When in Rome..</a></h3>
+                <p class="image-author">Edward Flint</p>
+            </div>
+        </li>
+        <li>
+            <img class="img-fluid" src="https://logos-world.net/wp-content/uploads/2020/12/Discord-Logo.png"
+                 style="width: 70px; height: 40px;">
+            <div class="details">
+                <h3><a href="#">Mountain Top</a></h3>
+                <p class="image-author">Rick Alpine</p>
+            </div>
+        </li>
+        <li>
+            <img class="img-fluid" src="https://logos-world.net/wp-content/uploads/2020/12/Discord-Logo.png"
+                 style="width: 70px; height: 40px;">
+            <div class="details">
+                <h3><a href="#">Vienna Adventure</a></h3>
+                <p class="image-author">Stacy River</p>
+            </div>
+        </li>
+        <li>
+            <img class="img-fluid" src="https://logos-world.net/wp-content/uploads/2020/12/Discord-Logo.png"
+                 style="width: 70px; height: 40px;">
+            <div class="details">
+                <h3><a href="#">Magnificent beach</a></h3>
+                <p class="image-author">Frank Stone</p>
+            </div>
+        </li>
+    </ul>
+</body>

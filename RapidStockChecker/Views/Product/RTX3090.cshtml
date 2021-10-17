@@ -1,8 +1,124 @@
-﻿
+﻿@using RapidStockChecker.Controllers;
+@using RSC.Models;
+@model dynamic
 @{
-    ViewData["Title"] = "RTX3090";
+    ViewData["Title"] = "RTX 3090 Stock Tracker";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>RTX3090</h1>
+<head>
+    <style>
+        hr {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            border: 0;
+            border-top: 4px solid rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+    </style>
+</head>
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img class="img-fluid"
+                 src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-600-p@2x.png">
+            <br>
+            <br>
+            <h3>NVIDIA RTX 3090</h3>
+            <hr />
+            <p>
+                Welcome to the NVIDIA RTX 3090 in stock and availability tracker! <br /><br />
+                If you have been having trouble finding one of these lately, you are not alone.
+                Our tracker will check stock for you 24/7. <br /> <br />Alerts are served directly to you using an existing Discord or Twitter account. <br /><br /> Let us help you take
+                the time and energy out of needing to constantly look for products in stock. We will let you know when they are back in stock instantly!
 
+            </p>
+            <br>
+            <h4>Get FREE Restock Notifications!</h4>
+            <p>
+                <hr />
+                <img class="img-fluid" src="https://logos-world.net/wp-content/uploads/2020/12/Discord-Logo.png"
+                     style="width: 70px; height: 40px;">
+                <a href="https://discord.gg/EfbWHkeGnX"><u>Discord Notifications</u></a>
+                <hr />
+                <img class="img-fluid" src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c53e.png"
+                     style="width: 70px; height: 70px;">
+                <a href="https://twitter.com/RapidStockCheck"><u>Twitter Alerts For All Products</u></a>
+            </p>
+        </div>
+        <div class="col-md-8">
+            <h5>RTX 3090 Tracker</h5>
+            <div class="table-responsive">
+                <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+                <table id="table1" class="table table-striped table table-bordered table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Retailer</th>
+                            <th>Name</th>
+                            <th>Stock Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Product product in Model.Products)
+                        {
+                            <tr>
+                                <td class="text-left">@product.Retailer</td>
+                                <td class="text-left">
+                                    <a href="@product.Url" style="color: cornflowerblue; font-size: 12px">
+                                        @product.Title
+                                    </a>
+                                <td class="text-left">
+                                    @product.InStock
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <script type="text/javascript">
+                    $('td:contains("True")').css('color', 'yellow').html("In Stock!");
+                    $('td:contains("False")').css('color', 'red').html("Out of Stock");
+                </script>
+            </div>
+            @if (Model.History.Count != 0)
+            {
+                <br>
+                <br>
+                <h5>Previous Alerts And Restock History</h5>
+                <div class="table-responsive">
+                    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+                    <table id="table1" class="table table-striped table table-bordered table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Date/Time (UTC)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (RestockHistory history in Model.History)
+                            {
+                                <tr>
+                                    <td class="text-left" style="font-size: 13px">@history.Name</td>
+                                    <td class="text-left" style="font-size: 15px">@history.DateTime</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <script type="text/javascript">
+                        $('td:contains("True")').css('color', 'blue').html("In Stock!");
+                        $('td:contains("False")').css('color', 'red').html("Out of Stock");
+                    </script>
+                </div>
+            }
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">
+                        This page may contain affiliate links, meaning when you click the link and
+                        make a purchase, we receive a commission. This is at no extra cost to you. As an Amazon
+                        Associate we earn from qualifying purchases
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

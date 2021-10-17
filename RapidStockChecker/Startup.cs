@@ -24,6 +24,7 @@ namespace RapidStockChecker
             services.AddControllersWithViews();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IRestockHistoryRepository, RestockHistoryRepository>();
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
 

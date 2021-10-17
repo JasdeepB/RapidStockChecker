@@ -10,8 +10,8 @@ namespace RSC.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        public int Channel { get; set; }
-        public int Role { get; set; }
+        public string Channel { get; set; }
+        public string Role { get; set; }
         public int SleepTime { get; set; }
         public string Color { get; set; }
         public string Name { get; set; }

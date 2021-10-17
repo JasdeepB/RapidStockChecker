@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RapidStockChecker.DataAccess;
 
 namespace RSC.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211016211911_DiscordUpdate")]
+    partial class DiscordUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,8 +43,8 @@ namespace RSC.DataAccess.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Channel")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("Channel")
+                        .HasColumnType("float");
 
                     b.Property<string>("Color")
                         .HasColumnType("nvarchar(max)");
@@ -50,8 +52,8 @@ namespace RSC.DataAccess.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Role")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("Role")
+                        .HasColumnType("float");
 
                     b.Property<int>("SleepTime")
                         .HasColumnType("int");

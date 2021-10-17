@@ -16,7 +16,7 @@ namespace RapidStockCheckerAPI.Controllers
             this.discordRepository = discordRepository;
         }
 
-        [HttpGet]
+        [HttpGet (Name = "GetDiscords")]
         [ProducesResponseType(400)]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Discord>))]
         public IActionResult GetDiscords()
@@ -43,6 +43,34 @@ namespace RapidStockCheckerAPI.Controllers
                 });
             }
             return Ok(discordList);
+        }
+
+        [HttpPost]
+        public IActionResult CreateDiscord([FromBody] Discord discordToCreate)
+        {
+            if (discordToCreate == null)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (this.discordRepository.DiscordExists(discordToCreate.Id) == true)
+            {
+                ModelState.AddModelError("", $"Discord { discordToCreate.Name } already exists");
+                return StatusCode(422, ModelState);
+            }
+
+            if (ModelState.IsValid == false)
+            {
+                return StatusCode(404, ModelState);
+            }
+
+            if (this.discordRepository.CreateDiscord(discordToCreate) == false)
+            {
+                ModelState.AddModelError("", $"Something went wrong saving {discordToCreate.Name}");
+                return StatusCode(500, ModelState);
+            }
+
+            return NoContent();
         }
     }
 }
