@@ -6,6 +6,7 @@
     <title>@ViewData["Title"] - RapidStockChecker</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="icon" href="~/r_design_2_I7X_icon.ico"/>
 </head>
 <body>
     <header>
@@ -29,9 +30,26 @@
                                 Product Trackers
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" asp-area="" asp-controller="Product" asp-action="Index">NVIDIA GeForce RTX 30 Series Graphics Cards</a>
-                                <a class="dropdown-item" href="#">AMD Radeon 6000 Series Cards</a>
-                                <a class="dropdown-item" href="#">Consoles</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Product" asp-action="RTX3090">NVIDIA GeForce RTX 3090</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Product" asp-action="RTX3080Ti">NVIDIA GeForce RTX 3080Ti</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Product" asp-action="RTX3080">NVIDIA GeForce RTX 3080</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Product" asp-action="RTX3070Ti">NVIDIA GeForce RTX 3070Ti</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Product" asp-action="RTX3070">NVIDIA GeForce RTX 3070</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Product" asp-action="RTX3060Ti">NVIDIA GeForce RTX 3060Ti</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Product" asp-action="RTX3060">NVIDIA GeForce RTX 3060</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" asp-area="" asp-controller="Product" asp-action="RX6900XT">AMD Radeon RX 6900 XT</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Product" asp-action="RX6800XT">AMD Radeon RX 6800 XT</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Product" asp-action="RX6800">AMD Radeon RX 6800</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Product" asp-action="RX6700XT">AMD Radeon RX 6700 XT</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" asp-area="" asp-controller="Product" asp-action="PS5">Sony PlayStation 5</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Product" asp-action="PS5Digital">Sony PlayStation 5 Digital</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" asp-area="" asp-controller="Product" asp-action="XBOXSeriesX">Microsoft XBOX Series X</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Product" asp-action="XBOXSeriesS">Microsoft XBOX Series S</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" asp-area="" asp-controller="Product" asp-action="SwitchOLED">Nintendo Switch OLED</a>
                             </div>
                         </li>
                     </ul>
@@ -53,7 +71,7 @@
                     site are the property of their respective owners. RapidStockChecker.com is a participant in the
                     Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a
                     means for sites to earn advertising fees by advertising and linking to Amazon.com. As an Amazon
-                    Associate we earn from qualifying purchases. - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                    Associate we earn from qualifying purchases. - <a href="https://www.freeprivacypolicy.com/live/33e1cf9f-a506-4a87-91cc-41cd094479f5">Privacy</a>
                 </p>
             </div>
         </div>

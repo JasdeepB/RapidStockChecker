@@ -4,6 +4,7 @@
     <TargetFramework>net5.0</TargetFramework>
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <ApplicationIcon>wwwroot\r_design_2_I7X_icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>

@@ -18,16 +18,70 @@ namespace RapidStockChecker.Controllers
             this.historyRepository = historyRepository;
         }
 
-        public IActionResult Index()
-        {
-            List<Product> list = (List<Product>)this.productRepository.GetAllProductsByTypeId(4);
-            return View(list);
-        }
-
         //localhost/Product/RTX3090
         public IActionResult RTX3090()
         {
-            return View(GetPageResoucesByTypeId(4));
+            return View(GetPageResoucesByTypeId(5));
+        }
+        public IActionResult RTX3080Ti()
+        {
+            return View(GetPageResoucesByTypeId(6));
+        }
+        public IActionResult RTX3080()
+        {
+            return View(GetPageResoucesByTypeId(7));
+        }
+        public IActionResult RTX3070Ti()
+        {
+            return View(GetPageResoucesByTypeId(8));
+        }
+        public IActionResult RTX3070()
+        {
+            return View(GetPageResoucesByTypeId(9));
+        }
+        public IActionResult RTX3060Ti()
+        {
+            return View(GetPageResoucesByTypeId(10));
+        }
+        public IActionResult RTX3060()
+        {
+            return View(GetPageResoucesByTypeId(11));
+        }
+        public IActionResult RX6900XT()
+        {
+            return View(GetPageResoucesByTypeId(15));
+        }
+        public IActionResult RX6800XT()
+        {
+            return View(GetPageResoucesByTypeId(14));
+        }
+        public IActionResult RX6800()
+        {
+            return View(GetPageResoucesByTypeId(13));
+        }
+        public IActionResult RX6700XT()
+        {
+            return View(GetPageResoucesByTypeId(12));
+        }
+        public IActionResult PS5()
+        {
+            return View(GetPageResoucesByTypeId(17));
+        }
+        public IActionResult PS5Digital()
+        {
+            return View(GetPageResoucesByTypeId(18));
+        }
+        public IActionResult XBOXSeriesX()
+        {
+            return View(GetPageResoucesByTypeId(19));
+        }
+        public IActionResult XBOXSeriesS()
+        {
+            return View(GetPageResoucesByTypeId(20));
+        }
+        public IActionResult SwitchOLED()
+        {
+            return View(GetPageResoucesByTypeId(21));
         }
 
         //EXAMPLE

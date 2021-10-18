@@ -1,75 +1,139 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Rapid Stock Checker | Gaming Components Availability Tracker";
 }
 <head>
     <style>
+        hr {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            border: 0;
+            border-top: 3px solid rgba(0, 0, 0, 0.1);
+        }
+
         .image-list-small {
-            font-family: Arial, Helvetica, sans-serif;
             margin: 0 auto;
             text-align: center;
-            max-width: 640px;
             padding: 0;
         }
 
-            .image-list-small li {
-                display: inline-block;
-                width: 181px;
-                margin: 0 12px 30px;
-            }
+        .image-list-small li {
+            display: inline-block;
+            margin: 0 12px 12px;
+        }
     </style>
 </head>
 <body>
-    <div class="text-center">
-        <h1 class="display-4">Welcome</h1>
-        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img class="img-fluid center-block d-block mx-auto" src="https://rapidstockchecker.s3.us-west-2.amazonaws.com/RSC-Banner-1.jpg">
+                <h2>Trending Trackers<br>(Hard to find)</h2>
+                <ul class="image-list-small">
+                    <li>
+                        <img class="img-fluid" src="https://rapidstockchecker.s3.us-west-2.amazonaws.com/3090.png"
+                             style="width: 180px; height: 80px;">
+                        <h3><a asp-controller="Product" asp-action="RTX3090">RTX 3090</a></h3>
+                        <p>GeForce 30 Series</p>
+                    </li>
+                    <li>
+                        <img class="img-fluid" src="https://rapidstockchecker.s3.us-west-2.amazonaws.com/3080ti.png"
+                             style="width: 170px; height: 110px;">
+                        <h3><a asp-controller="Product" asp-action="RTX3080Ti">RTX 3080 Ti</a></h3>
+                        <p>GeForce 30 Series</p>
+                    </li>
+                    <li>
+                        <img class="img-fluid" src="https://rapidstockchecker.s3.us-west-2.amazonaws.com/3080.png"
+                             style="width: 180px; height: 80px;">
+                        <h3><a asp-controller="Product" asp-action="RTX3080">RTX 3080</a></h3>
+                        <p>GeForce 30 Series</p>
+                    </li>
+                    <li>
+                        <img class="img-fluid" src="https://rapidstockchecker.s3.us-west-2.amazonaws.com/3070ti.png"
+                             style="width: 170px; height: 110px;">
+                        <h3><a asp-controller="Product" asp-action="RTX3070Ti">RTX 3070 Ti</a></h3>
+                        <p>GeForce 30 Series</p>
+                    </li>
+                    <li>
+                        <img class="img-fluid" src="https://rapidstockchecker.s3.us-west-2.amazonaws.com/3070.png"
+                             style="width: 180px; height: 80px;">
+                        <h3><a asp-controller="Product" asp-action="RTX3070">RTX 3070</a></h3>
+                        <p>GeForce 30 Series</p>
+                    </li>
+                    <li>
+                        <img class="img-fluid" src="https://rapidstockchecker.s3.us-west-2.amazonaws.com/3060ti.png"
+                             style="width: 180px; height: 80px;">
+                        <h3><a asp-controller="Product" asp-action="RTX3060Ti">RTX 3060 Ti</a></h3>
+                        <p>GeForce 30 Series</p>
+                    </li>
+                    <li>
+                        <img class="img-fluid" src="https://rapidstockchecker.s3.us-west-2.amazonaws.com/3060ti.png"
+                             style="width: 180px; height: 80px;">
+                        <h3><a asp-controller="Product" asp-action="RTX3060">RTX 3060</a></h3>
+                        <p>GeForce 30 Series</p>
+                    </li>
+                </ul>
+                <hr>
+                <ul class="image-list-small">
+                    <li>
+                        <img class="img-fluid" src="https://rapidstockchecker.s3.us-west-2.amazonaws.com/rx.png"
+                             style="width: 160px; height: 100px;">
+                        <h3><a asp-controller="Product" asp-action="RX6900XT">RX 6900 XT</a></h3>
+                        <p>AMD 6000 Series</p>
+                    </li>
+                    <li>
+                        <img class="img-fluid" src="https://rapidstockchecker.s3.us-west-2.amazonaws.com/rx.png"
+                             style="width: 160px; height: 100px;">
+                        <h3><a asp-controller="Product" asp-action="RX6800Xt">RX 6800 XT</a></h3>
+                        <p>AMD 6000 Series</p>
+                    </li>
+                    <li>
+                        <img class="img-fluid" src="https://rapidstockchecker.s3.us-west-2.amazonaws.com/rx.png"
+                             style="width: 160px; height: 100px;">
+                        <h3><a asp-controller="Product" asp-action="RX6800">RX 6800</a></h3>
+                        <p>AMD 6000 Series</p>
+                    </li>
+                    <li>
+                        <img class="img-fluid" src="https://rapidstockchecker.s3.us-west-2.amazonaws.com/rx.png"
+                             style="width: 160px; height: 100px;">
+                        <h3><a asp-controller="Product" asp-action="RX6700Xt">RTX 6700 XT</a></h3>
+                        <p>AMD 6000 Series</p>
+                    </li>
+                </ul>
+                <hr>
+                <ul class="image-list-small">
+                    <li>
+                        <img class="img-fluid" src="https://rapidstockchecker.s3.us-west-2.amazonaws.com/PS5.png"
+                             style="width: 150px; height: 195px;">
+                        <h3><a asp-controller="Product" asp-action="PS5">PlayStation 5</a></h3>
+                        <p>Sony PlayStation 5 Console</p>
+                    </li>
+                    <li>
+                        <img class="img-fluid" src="https://rapidstockchecker.s3.us-west-2.amazonaws.com/PS5D.png"
+                             style="width: 150px; height: 195px;">
+                        <h3><a asp-controller="Product" asp-action="PS5Digital">PlayStation 5 Digital</a></h3>
+                        <p>Sony PlayStation 5 Digital Console</p>
+                    </li>
+                    <li>
+                        <img class="img-fluid" src="https://rapidstockchecker.s3.us-west-2.amazonaws.com/switchOLED.png"
+                             style="width: 200px; height: 130px;">
+                        <h3><a asp-controller="Product" asp-action="SwitchOLED">Switch OLED</a></h3>
+                        <p>Nintendo Switch OLED</p>
+                    </li>
+                    <li>
+                        <img class="img-fluid" src="https://rapidstockchecker.s3.us-west-2.amazonaws.com/XBOXSeriesX.png"
+                             style="width: 300px; height: 195px;">
+                        <h3><a asp-controller="Product" asp-action="XBOXSeriesX">XBOX Series X</a></h3>
+                        <p>Microsoft XBOX Series X Console</p>
+                    </li>
+                    <li>
+                        <img class="img-fluid" src="https://rapidstockchecker.s3.us-west-2.amazonaws.com/XBOXSeriesS.png"
+                             style="width: 217px; height: 195px;">
+                        <h3><a asp-controller="Product" asp-action="XBOXSeriesS">XBOX Series S</a></h3>
+                        <p>Microsoft XBOX Series S Console</p>
+                    </li>
+                </ul>
+                <hr>
+            </div>
+        </div>
     </div>
-
-    <ul class="image-list-small">
-        <li>
-            <img class="img-fluid" src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3090/geforce-rtx-3090-shop-600-p@2x.png"
-                 style="width: 180px; height: 80px;">
-                <h3><a asp-controller="Product" asp-action="RTX3090">RTX 3090</a></h3>
-                <p class="image-author">GeForce 30 Series</p>
-        </li>
-        <li>
-            <img class="img-fluid" src="https://logos-world.net/wp-content/uploads/2020/12/Discord-Logo.png"
-                 style="width: 70px; height: 40px;">
-            <div class="details">
-                <h3><a href="#">Industrial</a></h3>
-                <p class="image-author">Earnest Leming</p>
-            </div>
-        </li>
-        <li>
-            <img class="img-fluid" src="https://logos-world.net/wp-content/uploads/2020/12/Discord-Logo.png"
-                 style="width: 70px; height: 40px;">
-            <div class="details">
-                <h3><a href="#">When in Rome..</a></h3>
-                <p class="image-author">Edward Flint</p>
-            </div>
-        </li>
-        <li>
-            <img class="img-fluid" src="https://logos-world.net/wp-content/uploads/2020/12/Discord-Logo.png"
-                 style="width: 70px; height: 40px;">
-            <div class="details">
-                <h3><a href="#">Mountain Top</a></h3>
-                <p class="image-author">Rick Alpine</p>
-            </div>
-        </li>
-        <li>
-            <img class="img-fluid" src="https://logos-world.net/wp-content/uploads/2020/12/Discord-Logo.png"
-                 style="width: 70px; height: 40px;">
-            <div class="details">
-                <h3><a href="#">Vienna Adventure</a></h3>
-                <p class="image-author">Stacy River</p>
-            </div>
-        </li>
-        <li>
-            <img class="img-fluid" src="https://logos-world.net/wp-content/uploads/2020/12/Discord-Logo.png"
-                 style="width: 70px; height: 40px;">
-            <div class="details">
-                <h3><a href="#">Magnificent beach</a></h3>
-                <p class="image-author">Frank Stone</p>
-            </div>
-        </li>
-    </ul>
 </body>

@@ -31,6 +31,7 @@ namespace RapidStockCheckerAPI
                     using (var scope = this.serviceProvider.CreateScope())
                     {
                         int productsFound = 0;
+                        var watch = new System.Diagnostics.Stopwatch();
                         var db = (ApplicationDbContext)scope.ServiceProvider.GetRequiredService(typeof(ApplicationDbContext));
                         var authentication = new AmazonAuthentication("AKIAJVMZ5BI4GYNFNJYQ", "61plkh/hS7ltiwS24FiQWJQBBo/Fb6vvis2wO4QO");
                         var client = new AmazonProductAdvertisingClient(authentication, AmazonEndpoint.US, "rapidstockche-20");
@@ -41,6 +42,7 @@ namespace RapidStockCheckerAPI
 
                         for (int i = 0; i < products.Count; i = i + 10)
                         {
+                            watch.Start();
                             List<string> items = new List<string>(products.Skip(i).Take(10));
                             var result = await client.GetItemsAsync(items.ToArray());
 
@@ -124,8 +126,12 @@ namespace RapidStockCheckerAPI
                                 Console.WriteLine("No valid ASIN(s) found");
                             }
 
+                            Console.WriteLine($"\nStock checked. Getting Next Set...");
                             await Task.Delay(9000);
                         }
+
+                        watch.Stop();
+                        Console.WriteLine($"\nCompleted Stock Check for {products.Count} products in {watch.ElapsedMilliseconds} milliseconds.\nRestarting stock check at the begining of the list");
                     }
                 }
                 catch (Exception ex)
