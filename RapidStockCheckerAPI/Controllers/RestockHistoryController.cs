@@ -39,6 +39,7 @@ namespace RapidStockCheckerAPI.Controllers
                 {
                     Id = value.Id,
                     Name = value.Name,
+                    SKU = value.SKU,
                     DateTime = value.DateTime
                 });
             }

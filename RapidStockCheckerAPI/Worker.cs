@@ -72,7 +72,7 @@ namespace RapidStockCheckerAPI
 
                                                 RestockHistory mostRecentRestock = db
                                                     .RestockHistory
-                                                    .Where(h => h.Type.Id == type.Id)
+                                                    .Where(h => h.SKU == product.SKU)
                                                     .OrderByDescending(h => h.DateTime)
                                                     .FirstOrDefault();
 
@@ -81,6 +81,7 @@ namespace RapidStockCheckerAPI
                                                     RestockHistory restockHistory = new RestockHistory()
                                                     {
                                                         Name = product.Title,
+                                                        SKU = product.SKU,
                                                         DateTime = DateTime.UtcNow,
                                                         Type = type
                                                     };
@@ -92,6 +93,7 @@ namespace RapidStockCheckerAPI
                                                     RestockHistory restockHistory = new RestockHistory()
                                                     {
                                                         Name = product.Title,
+                                                        SKU = product.SKU,
                                                         DateTime = DateTime.UtcNow,
                                                         Type = type
                                                     };

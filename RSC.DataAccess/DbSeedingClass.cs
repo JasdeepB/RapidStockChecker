@@ -61,11 +61,13 @@ namespace RSC.DataAccess
                                 new RestockHistory
                                 {
                                     Name = "RTX 3080",
+                                    SKU = "0000000",
                                     DateTime = DateTime.Now
                                 },
                                 new RestockHistory
                                 {
                                     Name = "RTX 3080",
+                                    SKU = "0000000",
                                     DateTime = DateTime.UtcNow
                                 }
                             }
@@ -115,11 +117,13 @@ namespace RSC.DataAccess
                                 new RestockHistory
                                 {
                                     Name = "RTX 3070",
+                                    SKU = "0000000",
                                     DateTime = DateTime.Now.AddDays(3)
                                 },
                                 new RestockHistory
                                 {
                                     Name = "RTX 3070",
+                                    SKU = "0000000",
                                     DateTime = DateTime.UtcNow.AddDays(6)
                                 }
                             },
@@ -193,11 +197,13 @@ namespace RSC.DataAccess
                                 new RestockHistory
                                 {
                                     Name = "RX 6800XT",
+                                    SKU = "0000000",
                                     DateTime = DateTime.Now.AddDays(3)
                                 },
                                 new RestockHistory
                                 {
                                     Name = "RX 6800XT",
+                                    SKU = "0000000",
                                     DateTime = DateTime.UtcNow.AddDays(6)
                                 }
                             }

@@ -10,6 +10,7 @@ namespace RSC.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
+        public string SKU { get; set; }
         public DateTime DateTime { get; set; }
         public virtual RSC.Models.Type Type { get; set; }
     }
