@@ -1,0 +1,119 @@
+﻿
+@{
+    ViewData["Title"] = "FAQ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center">FAQ</h1>
+<div class="container py-3">
+    <div class="row text-center">
+        <div class="col-10 mx-auto">
+            <div class="accordion" id="faq">
+                <div class="card">
+                    <div class="card-header p-2" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                How does this work?
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faq">
+                        <div class="card-body">
+                            Rapid Stock Checker is a free and intuitive service that tracks gaming products – ranging from graphic cards and CPUs to consoles –
+                            and notifies users instantly as soon as their favorite products are back in stock through our website and Discord Server. Inspired
+                            by the need to connect gaming enthusiasts to their favorite products the moment they become available, the exponential growth of the
+                            gaming industry, as well as a vision to make this platform entirely free, Rapid Stock Checker aims to build a community of happy
+                            consumers who get the gaming products they are looking for – and that usually sell out in a matter of seconds – instantly.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header p-2" id="headingTwo">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                After clicking on an alert, the product is not in stock, why?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faq">
+                        <div class="card-body">
+                            We check stock of hundreds of items every minute. We send out alerts when an item is in stock and is also able to be purchased. Sometimes
+                            items are back in stock, but the retailer has not enabled the ability to add to cart or checkout. Another reason is that few stock was
+                            replenished for the item(s) in question.<br /><br />There could also be huge demand for an item and all existing stock is sold within a couple minutes
+                            (seconds even). Rest assured that when we alert you, the product was in stock. Once you click a link to the retailer it is the faith of their
+                            systems that will determine whether you are able to complete a purchase. We sincerely hope that you make it through and can make the purchase.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header p-2" id="headingThree">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Will Rapid Stock Checker always be free to use?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faq">
+                        <div class="card-body">
+                            Yes, of course.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header p-2" id="headingFour">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                                What inspired the creation of Rapid Stock Checker?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#faq">
+                        <div class="card-body">
+                            Created by gamers, still in their senior year of college (who happen to know a thing or two about programming) we sought to help fellow gamers
+                            get the GPU’s and consoles they’ve been itching to buy. It all started when NVIDIA announced the RTX 30 series cards. After seeing the large
+                            increase in performance over the last generation, the internet was set ablaze with an unholy amount of hype. Not to mention the next gen consoles
+                            around the corner, adding more fuel to the fire. Launch day came and it went in just a couple of minutes. All stock depleted and no restocks in
+                            sight. Days, weeks, even months go by without a lick of new stock. Scalpers everywhere, exorbitant prices, it was getting out hand. MSRP was just
+                            a dream, a fairytale almost. <br /><br />This is where we decided that we wanted to step in and assist in the process of hunting down products brand new at MSRP.
+                            Competition is fierce we know we need to prioritize speed and boy did we manage. Less than 100 milliseconds of time for stock detection on hundreds
+                            of products. Over many nights between exams and classes we created this wonderful site and Discord server, fully autonomous and ready for battle. We
+                            are proud to bring this service to you, we hope that it helps you get what you’re looking for. Thank you for reading and visiting, stay safe and God speed.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header p-2" id="headingFive">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+                                How come you do not track more retailers?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#faq">
+                        <div class="card-body">
+                            A great question, and a question we ask ourselves all the time. Simply put we track retailers that offer affiliate status or partnerships. This is also
+                            how we earn our commission and in turn enable Rapid Stock Checker to remain free to use. After we establish this status, we optimize stock tracking down
+                            to the millisecond to ensure that you get your alerts as fast as possible.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header p-2" id="headingSix">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseThree">
+                                Does the bot really listen to heavy metal?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#faq">
+                        <div class="card-body">
+                            It does, and so do our developers. <a href="https://www.youtube.com/playlist?list=PL1T5LpVLz-ehP0J3pTLUFsBbps6c95zk_">Here's a link to the playlist 🤘</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

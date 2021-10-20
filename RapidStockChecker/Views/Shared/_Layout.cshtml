@@ -30,9 +30,6 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Product Trackers
@@ -59,6 +56,9 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" asp-area="" asp-controller="Product" asp-action="SwitchOLED">Nintendo Switch OLED</a>
                             </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-action="FAQ">FAQ</a>
                         </li>
                     </ul>
                 </div>
