@@ -12,6 +12,7 @@ namespace RSC.DataAccess.Services
         ICollection<Product> GetAllProductsByTypeId(int typeId);
         Discord ProductDiscord(int productId);
         Discord ProductDiscord(string SKU);
+        RSC.Models.Type ProductType(string SKU);
         ICollection<Product> GetAllProductsInStock();
 /*        ICollection<RestockHistory> GetRestockHistory(int productId);
         ICollection<RestockHistory> GetRestockHistory(string SKU);*/

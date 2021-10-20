@@ -78,10 +78,20 @@ namespace RapidStockCheckerAPI.Controllers
                     Retailer = prod.Retailer,
                     Url = prod.Url,
                     InStock = prod.InStock,
+                    Type = GetTypeDto(this.productRepository.ProductType(prod.SKU)),
                     Discord = GetDiscordDto(this.discordRepository.GetDiscordOfAnProduct(prod.SKU))
                 });
             }
             return Ok(productList);
+        }
+
+        private Type GetTypeDto(Type type)
+        {
+            return new Type()
+            {
+                Id = type.Id,
+                Name = type.Name
+            };
         }
 
         private Discord GetDiscordDto(Discord discord)

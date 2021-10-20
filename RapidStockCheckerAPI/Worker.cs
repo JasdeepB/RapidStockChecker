@@ -30,12 +30,13 @@ namespace RapidStockCheckerAPI
                 {
                     using (var scope = this.serviceProvider.CreateScope())
                     {
-                        int productsFound = 0;
                         var watch = new System.Diagnostics.Stopwatch();
                         var db = (ApplicationDbContext)scope.ServiceProvider.GetRequiredService(typeof(ApplicationDbContext));
                         var authentication = new AmazonAuthentication("AKIAJVMZ5BI4GYNFNJYQ", "61plkh/hS7ltiwS24FiQWJQBBo/Fb6vvis2wO4QO");
                         var client = new AmazonProductAdvertisingClient(authentication, AmazonEndpoint.US, "rapidstockche-20");
-
+                        var getTimout = db.Categories.Where(c => c.Id == 5).FirstOrDefault();
+                        int timeout = Int32.Parse(getTimout.Name);
+                        
                         List<string> products = db.Products.Select(p => p.SKU).ToList();
 
                         Console.WriteLine($"\nChecking stock for {products.Count} products");
@@ -57,27 +58,22 @@ namespace RapidStockCheckerAPI
                                             if (result.ItemsResult.Items[j].Offers.Listings[0].Availability.Message == "In Stock."
                                                || result.ItemsResult.Items[j].Offers.Listings[0].Availability.Type == "Backorderable")
                                             {
-                                                Console.WriteLine($"{result.ItemsResult.Items[j].ItemInfo.Title.DisplayValue} was found in stock!");
+                                                Product product = db
+                                                    .Products
+                                                    .Where(p => p.SKU == result.ItemsResult.Items[j].ASIN)
+                                                    .FirstOrDefault();
 
-                                                Product product = db.Products.Where(p => p.SKU == result.ItemsResult.Items[j].ASIN).FirstOrDefault();
-                                                product.InStock = true;
-                                                db.Products.Update(product);
-                                                productsFound++;
+                                                if (product.InStock == false)
+                                                {
+                                                    product.InStock = true;
+                                                    db.Products.Update(product);
 
-                                                var type = db
+                                                    var type = db
                                                     .Products
                                                     .Where(p => p.SKU == product.SKU)
                                                     .Select(t => t.Type)
                                                     .FirstOrDefault();
 
-                                                RestockHistory mostRecentRestock = db
-                                                    .RestockHistory
-                                                    .Where(h => h.SKU == product.SKU)
-                                                    .OrderByDescending(h => h.DateTime)
-                                                    .FirstOrDefault();
-
-                                                if (mostRecentRestock == null)
-                                                {
                                                     RestockHistory restockHistory = new RestockHistory()
                                                     {
                                                         Name = product.Title,
@@ -87,21 +83,13 @@ namespace RapidStockCheckerAPI
                                                     };
 
                                                     db.RestockHistory.Add(restockHistory);
+                                                    Console.WriteLine($"{result.ItemsResult.Items[j].ItemInfo.Title.DisplayValue} was found in stock!");
+                                                    await db.SaveChangesAsync();
                                                 }
-                                                else if (DateTime.UtcNow > mostRecentRestock.DateTime.AddHours(1)) //Change back to hour
+                                                else
                                                 {
-                                                    RestockHistory restockHistory = new RestockHistory()
-                                                    {
-                                                        Name = product.Title,
-                                                        SKU = product.SKU,
-                                                        DateTime = DateTime.UtcNow,
-                                                        Type = type
-                                                    };
-
-                                                    db.RestockHistory.Add(restockHistory);
+                                                    Console.WriteLine($"{product.Title} is already in stock");
                                                 }
-
-                                                await db.SaveChangesAsync();
                                             }
                                         }
                                         else
@@ -110,17 +98,11 @@ namespace RapidStockCheckerAPI
                                                 .Products
                                                 .Where(p => p.SKU == result.ItemsResult.Items[j].ASIN)
                                                 .FirstOrDefault();
-
                                             product.InStock = false;
                                             db.Products.Update(product);
                                             await db.SaveChangesAsync();
                                         }
                                     }
-                                }
-
-                                if (productsFound == 0)
-                                {
-                                    Console.WriteLine("No products found in stock, restarting\n");
                                 }
                             }
                             else
@@ -129,7 +111,7 @@ namespace RapidStockCheckerAPI
                             }
 
                             Console.WriteLine($"\nStock checked. Getting Next Set...");
-                            await Task.Delay(9000);
+                            await Task.Delay(timeout);
                         }
 
                         watch.Stop();

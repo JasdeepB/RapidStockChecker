@@ -152,6 +152,15 @@ namespace RSC.DataAccess.Services
                 .Any(p => p.SKU == SKU);
         }
 
+        public Type ProductType(string SKU)
+        {
+            return this.dbContext
+                .Products
+                .Where(p => p.SKU == SKU)
+                .Select(d => d.Type)
+                .FirstOrDefault();
+        }
+
         public bool Save()
         {
             var saved = this.dbContext.SaveChanges();
