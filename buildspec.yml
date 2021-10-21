@@ -4,7 +4,8 @@ phases:
   pre_build:
     commands:
       - echo Logging into Amazon ECR...
-      - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 753728765258.dkr.ecr.us-west-2.amazonaws.com
+      - aws --version
+      - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
       - REPOSITORY_URI=753728765258.dkr.ecr.us-west-2.amazonaws.com/rapidstockchecker
       - IMAGE_TAG=build-$(echo $CODEBUILD_ID | awk -F":" '{print $2}')
   build:
