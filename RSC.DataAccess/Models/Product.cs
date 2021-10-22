@@ -15,7 +15,6 @@ namespace RSC.Models
         public string ImageUrl { get; set; }
         public string Url { get; set; }
         public string Retailer { get; set; }
-        public double MSRP { get; set; }
         public bool InStock { get; set; }
         public virtual RSC.Models.Type Type { get; set; }
         public virtual Discord Discord { get; set; }
