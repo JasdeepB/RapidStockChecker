@@ -18,7 +18,8 @@ namespace RSC.DataAccess.Services
         ICollection<RestockHistory> GetRestockHistory(string SKU);*/
         bool IsDuplicateProduct(int productId, string productSKU);
         bool CreateProduct(Product product);
-        Task<Product> CreateProduct(string SKU, int discordId, int typeId);
+        Task<Product> CreateAmazonProduct(string SKU, int discordId, int typeId);
+        Product CreateBestBuyProduct(string SKU, int discordId, int typeId);
         bool UpdateProduct(Product product);
         bool DeleteProduct(Product product);
         bool Save();

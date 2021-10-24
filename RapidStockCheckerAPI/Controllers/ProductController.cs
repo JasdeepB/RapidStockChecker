@@ -293,9 +293,24 @@ namespace RapidStockCheckerAPI.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(422)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> CreateProductAsync(string SKU, [FromQuery] int discordId, [FromQuery] int typeId)
+        public async Task<IActionResult> CreateProductAsync(string SKU, [FromQuery] int discordId, [FromQuery] int typeId, [FromQuery(Name = "retailer")] string retailer)
         {
-            var productToCreate = await this.productRepository.CreateProduct(SKU, discordId, typeId);
+            Product productToCreate = null;
+
+            if (retailer == "Amazon")
+            {
+                productToCreate = await this.productRepository.CreateAmazonProduct(SKU, discordId, typeId);
+            }
+            else if (retailer == "Best Buy")
+            {
+                productToCreate = this.productRepository.CreateBestBuyProduct(SKU, discordId, typeId);
+
+                if (productToCreate == null)
+                {
+                    ModelState.AddModelError("", "Best Buy has blacklisted this product");
+                    return StatusCode(422, ModelState);
+                }
+            }
 
             if (productToCreate == null)
             {
@@ -310,6 +325,11 @@ namespace RapidStockCheckerAPI.Controllers
             {
                 ModelState.AddModelError("", $"Product {productToCreate.SKU} already exists");
                 return StatusCode(422, ModelState);
+            }
+
+            if (string.IsNullOrWhiteSpace(retailer))
+            {
+                ModelState.AddModelError("", "No retailer was provided");
             }
 
             if (this.typeRepository.TypeExists(productToCreate.Type.Id) == false)

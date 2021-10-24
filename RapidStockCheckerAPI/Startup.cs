@@ -24,7 +24,7 @@ namespace RapidStockCheckerAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IWorkerService, WorkerService>();
-            services.AddHostedService<Worker>();
+            services.AddHostedService<AmazonWorker>();
 
             services.AddMvc().AddNewtonsoftJson(o => o.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 

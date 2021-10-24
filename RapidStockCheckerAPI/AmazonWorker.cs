@@ -11,12 +11,12 @@ using System.Threading.Tasks;
 
 namespace RapidStockCheckerAPI
 {
-    public class Worker : BackgroundService
+    public class AmazonWorker : BackgroundService
     {
         protected IServiceProvider serviceProvider;
         protected IWorkerService workerService;
 
-        public Worker(IServiceProvider serviceProvider, IWorkerService workerService)
+        public AmazonWorker(IServiceProvider serviceProvider, IWorkerService workerService)
         {
             this.serviceProvider = serviceProvider;
             this.workerService = workerService;

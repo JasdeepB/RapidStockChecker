@@ -4,6 +4,6 @@ namespace RapidStockCheckerAPI
 {
     public interface IWorkerService
     {
-        IEnumerable<Worker> Workers { get; set; }
+        IEnumerable<AmazonWorker> Workers { get; set; }
     }
 }

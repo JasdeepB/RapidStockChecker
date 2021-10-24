@@ -1,8 +1,12 @@
 ﻿using Nager.AmazonProductAdvertising;
+using Newtonsoft.Json;
 using RapidStockChecker.DataAccess;
 using RSC.Models;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace RSC.DataAccess.Services
@@ -22,7 +26,7 @@ namespace RSC.DataAccess.Services
             return Save();
         }
 
-        public async Task<Product> CreateProduct(string SKU, int discordId, int typeId)
+        public async Task<Product> CreateAmazonProduct(string SKU, int discordId, int typeId)
         {
             var authentication = new AmazonAuthentication("AKIAJVMZ5BI4GYNFNJYQ", "61plkh/hS7ltiwS24FiQWJQBBo/Fb6vvis2wO4QO");
             var client = new AmazonProductAdvertisingClient(authentication, AmazonEndpoint.US, "rapidstockche-20");
@@ -91,23 +95,23 @@ namespace RSC.DataAccess.Services
                 .FirstOrDefault();
         }
 
-/*        public ICollection<RestockHistory> GetRestockHistory(int productId)
-        {
-            return this.dbContext
-                .RestockHistory
-                .Where(h => h.Product.Id == productId)
-                .OrderBy(hs => hs.DateTime)
-                .ToList();
-        }*/
+        /*        public ICollection<RestockHistory> GetRestockHistory(int productId)
+                {
+                    return this.dbContext
+                        .RestockHistory
+                        .Where(h => h.Product.Id == productId)
+                        .OrderBy(hs => hs.DateTime)
+                        .ToList();
+                }*/
 
-/*        public ICollection<RestockHistory> GetRestockHistory(string SKU)
-        {
-            return this.dbContext
-                .RestockHistory
-                .Where(h => h.Product.SKU == SKU)
-                .OrderBy(hs => hs.DateTime)
-                .ToList();
-        }*/
+        /*        public ICollection<RestockHistory> GetRestockHistory(string SKU)
+                {
+                    return this.dbContext
+                        .RestockHistory
+                        .Where(h => h.Product.SKU == SKU)
+                        .OrderBy(hs => hs.DateTime)
+                        .ToList();
+                }*/
 
         public bool IsDuplicateProduct(int productId, string productSKU)
         {
@@ -152,7 +156,7 @@ namespace RSC.DataAccess.Services
                 .Any(p => p.SKU == SKU);
         }
 
-        public Type ProductType(string SKU)
+        public RSC.Models.Type ProductType(string SKU)
         {
             return this.dbContext
                 .Products
@@ -171,6 +175,39 @@ namespace RSC.DataAccess.Services
         {
             this.dbContext.Update(product);
             return Save();
+        }
+
+        public Product CreateBestBuyProduct(string SKU, int discordId, int typeId)
+        {
+            WebRequest request = WebRequest.Create("https://api.bestbuy.com/v1/products(sku in (" + SKU + "))?show=name,sku,url,onlineAvailability,orderable,onlineAvailabilityUpdateDate,images&apiKey=5xgXQO0ADVC6jNAvwS55DgxX&format=json");
+            WebResponse response = request.GetResponse();
+
+            using (Stream dataStream = response.GetResponseStream())
+            {
+                StreamReader reader = new StreamReader(dataStream);
+                string responseFromServer = reader.ReadToEnd();
+
+                BestBuyResponse bestBuyResponse = JsonConvert.DeserializeObject<BestBuyResponse>(responseFromServer);
+
+                if (bestBuyResponse.products.Count == 0)
+                {
+                    return null;
+                }
+
+                Product product = new Product();
+
+                product.SKU = bestBuyResponse.products[0].sku.ToString();
+                product.Title = bestBuyResponse.products[0].name;
+                product.ImageUrl = bestBuyResponse.products[0].images[0].href;
+                product.Url = bestBuyResponse.products[0].url;
+                product.Retailer = "Best Buy";
+                product.InStock = false;
+
+                product.Discord = new Discord() { Id = discordId };
+                product.Type = new RSC.Models.Type() { Id = typeId };
+
+                return product;
+            }
         }
     }
 }
