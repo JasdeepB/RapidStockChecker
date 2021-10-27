@@ -128,6 +128,17 @@ namespace RapidStockCheckerAPI
                                                         Console.WriteLine($"{result.ItemsResult.Items[j].ItemInfo.Title.DisplayValue} was found in stock! [MSRP Check]");
                                                         await db.SaveChangesAsync();
                                                     }
+                                                    else if (product.InStock  == true && lowestPriceOnAmazon > product.MSRP)
+                                                    {
+                                                        product = db
+                                                            .Products
+                                                            .Where(p => p.SKU == result.ItemsResult.Items[j].ASIN)
+                                                            .FirstOrDefault();
+
+                                                        product.InStock = false;
+                                                        db.Products.Update(product);
+                                                        await db.SaveChangesAsync();
+                                                    }
                                                     else
                                                     {
                                                         Console.WriteLine($"{product.Title} is already in stock [MSRP]");
