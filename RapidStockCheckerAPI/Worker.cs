@@ -38,10 +38,6 @@ namespace RapidStockCheckerAPI
                         int timeout = Int32.Parse(getTimeout.Name);
 
                         List<string> products = db.Products.Select(p => p.SKU).ToList();
-                        products = new List<string>()
-                        {
-                            "B08D7693JM"
-                        };
 
                         Console.WriteLine($"\nChecking stock for {products.Count} products");
 
@@ -87,7 +83,7 @@ namespace RapidStockCheckerAPI
                                                     };
 
                                                     db.RestockHistory.Add(restockHistory);
-                                                    Console.WriteLine($"{result.ItemsResult.Items[j].ItemInfo.Title.DisplayValue} was found in stock! [Amazon]");
+                                                    Console.WriteLine($"{result.ItemsResult.Items[j].ItemInfo.Title.DisplayValue} was found in stock! [Amazon Check]");
                                                     await db.SaveChangesAsync();
                                                 }
                                                 else
@@ -129,14 +125,12 @@ namespace RapidStockCheckerAPI
                                                         };
 
                                                         db.RestockHistory.Add(restockHistory);
-                                                        Console.WriteLine($"{result.ItemsResult.Items[j].ItemInfo.Title.DisplayValue} was found in stock! [MSRP]");
+                                                        Console.WriteLine($"{result.ItemsResult.Items[j].ItemInfo.Title.DisplayValue} was found in stock! [MSRP Check]");
                                                         await db.SaveChangesAsync();
                                                     }
                                                     else
                                                     {
-                                                        product.InStock = false;
-                                                        db.Products.Update(product);
-                                                        await db.SaveChangesAsync();
+                                                        Console.WriteLine($"{product.Title} is already in stock [MSRP]");
                                                     }
                                                 }
                                             }
