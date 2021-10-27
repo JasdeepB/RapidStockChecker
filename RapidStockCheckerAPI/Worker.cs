@@ -128,20 +128,16 @@ namespace RapidStockCheckerAPI
                                                         Console.WriteLine($"{result.ItemsResult.Items[j].ItemInfo.Title.DisplayValue} was found in stock! [MSRP Check]");
                                                         await db.SaveChangesAsync();
                                                     }
-                                                    else if (product.InStock  == true && lowestPriceOnAmazon > product.MSRP)
+                                                    else if (product.InStock == true && lowestPriceOnAmazon <= product.MSRP)
                                                     {
-                                                        product = db
-                                                            .Products
-                                                            .Where(p => p.SKU == result.ItemsResult.Items[j].ASIN)
-                                                            .FirstOrDefault();
-
+                                                        Console.WriteLine($"{product.Title} is already in stock [MSRP Check]");
+                                                    }
+                                                    else if (product.InStock == true && lowestPriceOnAmazon > product.MSRP)
+                                                    {
                                                         product.InStock = false;
                                                         db.Products.Update(product);
+                                                        Console.WriteLine($"{product.Title} is no longer in stock [MSRP Check]");
                                                         await db.SaveChangesAsync();
-                                                    }
-                                                    else
-                                                    {
-                                                        Console.WriteLine($"{product.Title} is already in stock [MSRP]");
                                                     }
                                                 }
                                             }
