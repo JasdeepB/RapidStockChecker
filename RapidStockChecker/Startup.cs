@@ -5,6 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RapidStockChecker.DataAccess;
+using RapidStockChecker.Hubs;
+using RapidStockChecker.WorkerServices;
 using RSC.DataAccess.Services;
 
 namespace RapidStockChecker
@@ -21,6 +23,11 @@ namespace RapidStockChecker
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSignalR(hubOptions =>
+            {
+                hubOptions.EnableDetailedErrors = true;
+            });
+            services.AddHostedService<MessageBrokerPubSubWorker>();
             services.AddControllersWithViews();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
@@ -53,6 +60,7 @@ namespace RapidStockChecker
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapHub<MessageBrokerHub>("/messagebroker");
             });
         }
     }

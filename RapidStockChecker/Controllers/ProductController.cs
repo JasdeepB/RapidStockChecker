@@ -18,6 +18,10 @@ namespace RapidStockChecker.Controllers
             this.historyRepository = historyRepository;
         }
 
+        public IActionResult Tests()
+        {
+            return View(GetPageResoucesByTypeId(4));
+        }
         //localhost/Product/RTX3090
         public IActionResult RTX3090()
         {
