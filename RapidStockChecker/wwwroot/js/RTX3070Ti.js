@@ -11,26 +11,12 @@ challenge.volume = 0.15;
 var ding = new Audio('https://rapidstockchecker.s3.us-west-2.amazonaws.com/ding.mp3');
 ding.volume = 0.60;
 
-const alarm = 'alarmRTX3070Ti';
 const alarmType = 'alarmTypeRTX3070Ti';
 const group = 'NVIDIAGeForceRTX3070Ti';
 
 $(document).ready(function () {
 
     $("#notification").hide();
-
-    if ($.cookie(alarm) == undefined) {
-        $.cookie(alarm, 'false', { expires: 1 });
-    }
-
-    var audioState = $.cookie(alarm);
-    if (audioState == "true") {
-        $('#alarmToggle').prop('checked', true);
-    }
-    else {
-        $('#alarmToggle').prop('checked', false);
-    }
-
 
     if ($.cookie(alarmType) == undefined) {
         $.cookie(alarmType, 'Default', { expires: 1 });
@@ -63,11 +49,6 @@ signalrConnection.onreconnected((connectionId) => {
         .catch(err => {
         console.log(err);
     });
-});
-
-$('#alarmToggle').change(function () {
-    var audioState = document.getElementById("alarmToggle").checked;
-    $.cookie(alarm, audioState, { expires: 1 });
 });
 
 $('#alarmType').change(function () {
