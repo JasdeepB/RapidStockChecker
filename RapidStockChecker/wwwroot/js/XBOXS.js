@@ -1,1 +1,159 @@
-﻿'use strict'; var _0x576752 = _0x3244; (function (_0x1067f4, _0x316e80) { var _0x391f1e = _0x3244, _0x3f5c2a = _0x1067f4(); while (!![]) { try { var _0x45a23c = parseInt(_0x391f1e(0x150)) / 0x1 * (parseInt(_0x391f1e(0x15b)) / 0x2) + -parseInt(_0x391f1e(0x169)) / 0x3 * (-parseInt(_0x391f1e(0x180)) / 0x4) + parseInt(_0x391f1e(0x15d)) / 0x5 * (-parseInt(_0x391f1e(0x178)) / 0x6) + -parseInt(_0x391f1e(0x171)) / 0x7 + -parseInt(_0x391f1e(0x17e)) / 0x8 * (-parseInt(_0x391f1e(0x188)) / 0x9) + parseInt(_0x391f1e(0x179)) / 0xa * (-parseInt(_0x391f1e(0x172)) / 0xb) + -parseInt(_0x391f1e(0x175)) / 0xc; if (_0x45a23c === _0x316e80) break; else _0x3f5c2a['push'](_0x3f5c2a['shift']()); } catch (_0x38d8d7) { _0x3f5c2a['push'](_0x3f5c2a['shift']()); } } }(_0x911a, 0xe50ba)); var clock = new Audio(_0x576752(0x164)); clock[_0x576752(0x184)] = 0.1; var rooster = new Audio(_0x576752(0x153)); rooster['volume'] = 0.7; var nuke = new Audio('https://rapidstockchecker.s3.us-west-2.amazonaws.com/nuke.mp3'); function _0x3244(_0x465363, _0x203ffe) { var _0x911aae = _0x911a(); return _0x3244 = function (_0x3244c2, _0xe65d1f) { _0x3244c2 = _0x3244c2 - 0x150; var _0x207d02 = _0x911aae[_0x3244c2]; return _0x207d02; }, _0x3244(_0x465363, _0x203ffe); } nuke[_0x576752(0x184)] = 0.15; var challenge = new Audio(_0x576752(0x156)); challenge['volume'] = 0.15; var ding = new Audio(_0x576752(0x166)); ding[_0x576752(0x184)] = 0.6; const alarm = _0x576752(0x18a), alarmType = _0x576752(0x185); $(document)['ready'](function () { var _0x475c55 = _0x576752; $('#notification')[_0x475c55(0x187)](); $[_0x475c55(0x182)](alarm) == undefined && $[_0x475c55(0x182)](alarm, _0x475c55(0x181), { 'expires': 0x1 }); var _0x4c68e7 = $[_0x475c55(0x182)](alarm); _0x4c68e7 == _0x475c55(0x15c) ? $(_0x475c55(0x163))[_0x475c55(0x161)](_0x475c55(0x158), !![]) : $(_0x475c55(0x163))[_0x475c55(0x161)](_0x475c55(0x158), ![]); $[_0x475c55(0x182)](alarmType) == undefined && $[_0x475c55(0x182)](alarmType, _0x475c55(0x168), { 'expires': 0x1 }); var _0x43e43 = $[_0x475c55(0x182)](alarmType); $(_0x475c55(0x162))[_0x475c55(0x17b)](_0x43e43); }); const signalrConnection = new signalR[(_0x576752(0x18f))]()[_0x576752(0x160)](_0x576752(0x170))[_0x576752(0x189)](); function _0x911a() { var _0x342935 = ['getElementById', 'volume', 'alarmTypeXBOXS', 'show', 'hide', '27kYDNgz', 'build', 'alarmXBOXS', 'Nuke', 'href', 'attr', ':selected', 'HubConnectionBuilder', 'retailer', '513977xVMJwe', 'url', 'title', 'https://rapidstockchecker.s3.us-west-2.amazonaws.com/rooster.mp3', 'text', '#notification', 'https://rapidstockchecker.s3.us-west-2.amazonaws.com/challenge.mp3', 'innerText', 'checked', 'catch', 'Ding', '2DNBwRL', 'true', '185XRIDxn', '#stockBody', 'start', 'withUrl', 'prop', '#alarmType', '#alarmToggle', 'https://rapidstockchecker.s3.us-west-2.amazonaws.com/alarm-clock.mp3', 'toast', 'https://rapidstockchecker.s3.us-west-2.amazonaws.com/ding.mp3', 'loop', 'Default', '15Ezjvux', 'change', 'stockHeader', 'XBOXSeriesS', 'alarmToggle', 'then', 'find', '/messagebroker', '2553292axEPex', '11064383pPGjYE', '#closeNotification', 'click', '6866580lbvEvj', 'Rooster', 'stockBody', '59526pnesVW', '10jMbtzF', 'log', 'val', 'play', '.toast', '2569944fmPGRs', 'Challenge', '1416292VATIwp', 'false', 'cookie']; _0x911a = function () { return _0x342935; }; return _0x911a(); } signalrConnection[_0x576752(0x15f)]()[_0x576752(0x16e)](_0x42fd78 => { var _0x330db6 = _0x576752; signalrConnection['invoke']('JoinGroup', _0x330db6(0x16c))[_0x330db6(0x159)](_0x5b23ff => { var _0x37a50d = _0x330db6; console[_0x37a50d(0x17a)](_0x5b23ff); }); })[_0x576752(0x159)](_0xc07d86 => { var _0x5642df = _0x576752; console[_0x5642df(0x17a)](_0xc07d86); }), $(_0x576752(0x163))['change'](function () { var _0x51142c = _0x576752, _0x537745 = document[_0x51142c(0x183)](_0x51142c(0x16d))[_0x51142c(0x158)]; $[_0x51142c(0x182)](alarm, _0x537745, { 'expires': 0x1 }); }), $('#alarmType')[_0x576752(0x16a)](function () { var _0x29dccb = _0x576752, _0x3058ec = $(_0x29dccb(0x162))[_0x29dccb(0x16f)](_0x29dccb(0x18e))['text'](); $[_0x29dccb(0x182)](alarmType, _0x3058ec, { 'expires': 0x1 }); }), $(_0x576752(0x173))[_0x576752(0x174)](function () { var _0x5550c5 = _0x576752; $(_0x5550c5(0x155))['hide'](); }), $('#testSound')['click'](function () { var _0xa15c53 = _0x576752, _0xba249f = document[_0xa15c53(0x183)](_0xa15c53(0x16d))[_0xa15c53(0x158)]; if ($[_0xa15c53(0x182)](alarmType) == undefined) { var _0x4f48b9 = $(_0xa15c53(0x162))[_0xa15c53(0x16f)](_0xa15c53(0x18e))[_0xa15c53(0x154)](); $['cookie'](alarmType, _0x4f48b9, { 'expires': 0x1 }); } if (_0xba249f == !![]) switch ($[_0xa15c53(0x182)](alarmType)) { case 'Default': clock[_0xa15c53(0x167)] = ![], clock[_0xa15c53(0x17c)](); break; case _0xa15c53(0x176): rooster['loop'] = ![], rooster['play'](); break; case 'Nuke': nuke[_0xa15c53(0x167)] = ![], nuke[_0xa15c53(0x17c)](); break; case _0xa15c53(0x17f): challenge[_0xa15c53(0x167)] = ![], challenge[_0xa15c53(0x17c)](); break; case 'Ding': ding[_0xa15c53(0x167)] = ![], ding['play'](); break; } }), signalrConnection['on']('XBOXSeriesSAlertTrigger', function (_0x2e26db) { var _0x7d5681 = _0x576752; const _0x342f5c = document[_0x7d5681(0x183)](_0x7d5681(0x16b)); _0x342f5c['innerText'] = 'Stock\x20Found\x20on\x20' + _0x2e26db[_0x7d5681(0x190)]; const _0x5a1361 = document[_0x7d5681(0x183)](_0x7d5681(0x177)); _0x5a1361[_0x7d5681(0x157)] = _0x2e26db[_0x7d5681(0x152)], $(_0x7d5681(0x15e))[_0x7d5681(0x18d)](_0x7d5681(0x18c), _0x2e26db[_0x7d5681(0x151)]), $(_0x7d5681(0x155))[_0x7d5681(0x186)](), $(_0x7d5681(0x17d))[_0x7d5681(0x165)]({ 'autohide': ![] }), $(_0x7d5681(0x17d))['toast'](_0x7d5681(0x186)); var _0x4ebf8a = document[_0x7d5681(0x183)]('alarmToggle')['checked']; if ($[_0x7d5681(0x182)](alarmType) == undefined) { var _0x490f9a = $(_0x7d5681(0x162))[_0x7d5681(0x16f)](_0x7d5681(0x18e))['text'](); $[_0x7d5681(0x182)](alarmType, _0x490f9a, { 'expires': 0x1 }); } if (_0x4ebf8a == !![]) switch ($[_0x7d5681(0x182)](alarmType)) { case _0x7d5681(0x168): clock['loop'] = ![], clock[_0x7d5681(0x17c)](); break; case 'Rooster': rooster[_0x7d5681(0x167)] = ![], rooster[_0x7d5681(0x17c)](); break; case _0x7d5681(0x18b): nuke[_0x7d5681(0x167)] = ![], nuke[_0x7d5681(0x17c)](); break; case _0x7d5681(0x17f): challenge[_0x7d5681(0x167)] = ![], challenge['play'](); break; case _0x7d5681(0x15a): ding[_0x7d5681(0x167)] = ![], ding[_0x7d5681(0x17c)](); break; } });
+﻿"use strict"
+
+var clock = new Audio('https://rapidstockchecker.s3.us-west-2.amazonaws.com/alarm-clock.mp3');
+clock.volume = 0.10;
+var rooster = new Audio('https://rapidstockchecker.s3.us-west-2.amazonaws.com/rooster.mp3');
+rooster.volume = 0.70;
+var nuke = new Audio('https://rapidstockchecker.s3.us-west-2.amazonaws.com/nuke.mp3');
+nuke.volume = 0.15;
+var challenge = new Audio('https://rapidstockchecker.s3.us-west-2.amazonaws.com/challenge.mp3');
+challenge.volume = 0.15;
+var ding = new Audio('https://rapidstockchecker.s3.us-west-2.amazonaws.com/ding.mp3');
+ding.volume = 0.60;
+
+const alarm = 'alarmXBOXS';
+const alarmType = 'alarmTypeXBOXS';
+const group = 'XBOXSeriesS';
+
+$(document).ready(function () {
+
+    $("#notification").hide();
+
+    if ($.cookie(alarm) == undefined) {
+        $.cookie(alarm, 'false', { expires: 1 });
+    }
+
+    var audioState = $.cookie(alarm);
+    if (audioState == "true") {
+        $('#alarmToggle').prop('checked', true);
+    }
+    else {
+        $('#alarmToggle').prop('checked', false);
+    }
+
+
+    if ($.cookie(alarmType) == undefined) {
+        $.cookie(alarmType, 'Default', { expires: 1 });
+    }
+    var audioSelected = $.cookie(alarmType);
+    $("#alarmType").val(audioSelected);
+});
+
+const signalrConnection = new signalR.HubConnectionBuilder()
+    .withUrl("/messagebroker")
+    .withAutomaticReconnect([0, 2000, 10000, 30000, 60000, 120000])
+    .build();
+
+signalrConnection.start().then(res => {
+    signalrConnection.invoke("JoinGroup", group)
+        .catch(err => {
+            console.log(err);
+        });
+}).catch(err => {
+    console.log(err);
+});
+
+signalrConnection.onreconnecting((error) => {
+    console.log("DISCONNECTED FROM SERVER. Attempting to reconnect");
+});
+
+signalrConnection.onreconnected((connectionId) => {
+    console.log("Connection Reestablished");
+    signalrConnection.invoke("JoinGroup", group)
+        .catch(err => {
+        console.log(err);
+    });
+});
+
+$('#alarmToggle').change(function () {
+    var audioState = document.getElementById("alarmToggle").checked;
+    $.cookie(alarm, audioState, { expires: 1 });
+});
+
+$('#alarmType').change(function () {
+    var audioSelected = $('#alarmType').find(":selected").text();
+    $.cookie(alarmType, audioSelected, { expires: 1 });
+});
+
+$('#closeNotification').click(function () {
+    $("#notification").hide();
+});
+
+$("#testSound").click(function () {
+    var audioState = document.getElementById('alarmToggle').checked;
+
+    if ($.cookie(alarmType) == undefined) {
+        var audioSelected = $('#alarmType').find(":selected").text();
+        $.cookie(alarmType, audioSelected, { expires: 1 });
+    }
+
+    if (audioState == true) {
+
+        switch ($.cookie(alarmType)) {
+            case 'Default':
+                clock.loop = false;
+                clock.play();
+                break;
+            case 'Rooster':
+                rooster.loop = false;
+                rooster.play();
+                break;
+            case 'Nuke':
+                nuke.loop = false;
+                nuke.play();
+                break;
+            case 'Challenge':
+                challenge.loop = false;
+                challenge.play();
+                break;
+            case 'Ding':
+                ding.loop = false;
+                ding.play();
+                break;
+        }
+    }
+});
+
+signalrConnection.on("XBOXSeriesSAlertTrigger", function (products) {
+    const stockHeader = document.getElementById("stockHeader");
+    stockHeader.innerText = "Stock Found on " + products.retailer;
+    const stockBody = document.getElementById("stockBody");
+    stockBody.innerText = products.title;
+    $("#stockBody").attr("href", products.url)
+    $("#notification").show();
+    $('.toast').toast({ autohide: false });
+    $('.toast').toast('show');
+
+    var audioState = document.getElementById('alarmToggle').checked;
+
+    if ($.cookie(alarmType) == undefined) {
+        var audioSelected = $('#alarmType').find(":selected").text();
+        $.cookie(alarmType, audioSelected, { expires: 1 });
+    }
+
+    if (audioState == true) {
+
+        switch ($.cookie(alarmType)) {
+            case 'Default':
+                clock.loop = false;
+                clock.play();
+                break;
+            case 'Rooster':
+                rooster.loop = false;
+                rooster.play();
+                break;
+            case 'Nuke':
+                nuke.loop = false;
+                nuke.play();
+                break;
+            case 'Challenge':
+                challenge.loop = false;
+                challenge.play();
+                break;
+            case 'Ding':
+                ding.loop = false;
+                ding.play();
+                break;
+        }
+    }
+});

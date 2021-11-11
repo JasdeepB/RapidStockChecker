@@ -1,1 +1,159 @@
-﻿'use strict'; var _0x2a2e40 = _0x3f5c; (function (_0x168eb7, _0x26179a) { var _0x852940 = _0x3f5c, _0x33c1b6 = _0x168eb7(); while (!![]) { try { var _0x3a0f8c = parseInt(_0x852940(0xe2)) / 0x1 + -parseInt(_0x852940(0xbe)) / 0x2 + -parseInt(_0x852940(0xe5)) / 0x3 + -parseInt(_0x852940(0xdb)) / 0x4 + parseInt(_0x852940(0xe7)) / 0x5 * (-parseInt(_0x852940(0xcc)) / 0x6) + -parseInt(_0x852940(0xc3)) / 0x7 + parseInt(_0x852940(0xcf)) / 0x8; if (_0x3a0f8c === _0x26179a) break; else _0x33c1b6['push'](_0x33c1b6['shift']()); } catch (_0x1f2cc6) { _0x33c1b6['push'](_0x33c1b6['shift']()); } } }(_0x16a0, 0x752df)); var clock = new Audio(_0x2a2e40(0xdf)); clock[_0x2a2e40(0xe1)] = 0.1; var rooster = new Audio(_0x2a2e40(0xe0)); rooster['volume'] = 0.7; function _0x3f5c(_0x1d9373, _0x26a90d) { var _0x16a0f1 = _0x16a0(); return _0x3f5c = function (_0x3f5cbf, _0x5d2991) { _0x3f5cbf = _0x3f5cbf - 0xb7; var _0x474ab4 = _0x16a0f1[_0x3f5cbf]; return _0x474ab4; }, _0x3f5c(_0x1d9373, _0x26a90d); } var nuke = new Audio('https://rapidstockchecker.s3.us-west-2.amazonaws.com/nuke.mp3'); nuke[_0x2a2e40(0xe1)] = 0.15; var challenge = new Audio('https://rapidstockchecker.s3.us-west-2.amazonaws.com/challenge.mp3'); challenge['volume'] = 0.15; var ding = new Audio(_0x2a2e40(0xd2)); ding[_0x2a2e40(0xe1)] = 0.6; function _0x16a0() { var _0x304956 = ['start', 'withUrl', '1364368AevnDl', '#alarmToggle', 'title', 'NVIDIAGeForceRTX3090AlertTrigger', 'then', '5226340qIqrZb', 'attr', 'Default', 'hide', 'loop', 'retailer', 'Stock\x20Found\x20on\x20', 'url', 'cookie', '54YAzXXi', 'JoinGroup', 'find', '20005528SzlWmw', 'innerText', '.toast', 'https://rapidstockchecker.s3.us-west-2.amazonaws.com/ding.mp3', ':selected', 'change', 'text', 'false', 'log', 'getElementById', 'stockBody', 'show', '776008qFetZC', '#notification', '#alarmType', 'ready', 'https://rapidstockchecker.s3.us-west-2.amazonaws.com/alarm-clock.mp3', 'https://rapidstockchecker.s3.us-west-2.amazonaws.com/rooster.mp3', 'volume', '317244NilcFV', 'Nuke', 'val', '1020909cwljHV', 'alarmTypeRTX3090', '208255CwkCcH', 'alarmRTX3090', 'Rooster', 'catch', 'play', 'HubConnectionBuilder', 'checked', 'build', 'Challenge', 'toast', '/messagebroker', 'Ding', 'alarmToggle', 'click', 'stockHeader']; _0x16a0 = function () { return _0x304956; }; return _0x16a0(); } const alarm = _0x2a2e40(0xe8), alarmType = _0x2a2e40(0xe6); $(document)[_0x2a2e40(0xde)](function () { var _0x2bdaee = _0x2a2e40; $('#notification')[_0x2bdaee(0xc6)](); $[_0x2bdaee(0xcb)](alarm) == undefined && $[_0x2bdaee(0xcb)](alarm, _0x2bdaee(0xd6), { 'expires': 0x1 }); var _0x4c7d72 = $['cookie'](alarm); _0x4c7d72 == 'true' ? $(_0x2bdaee(0xbf))['prop'](_0x2bdaee(0xed), !![]) : $(_0x2bdaee(0xbf))['prop'](_0x2bdaee(0xed), ![]); $[_0x2bdaee(0xcb)](alarmType) == undefined && $[_0x2bdaee(0xcb)](alarmType, _0x2bdaee(0xc5), { 'expires': 0x1 }); var _0x30204a = $[_0x2bdaee(0xcb)](alarmType); $(_0x2bdaee(0xdd))[_0x2bdaee(0xe4)](_0x30204a); }); const signalrConnection = new signalR[(_0x2a2e40(0xec))]()[_0x2a2e40(0xbd)](_0x2a2e40(0xb7))[_0x2a2e40(0xee)](); signalrConnection[_0x2a2e40(0xbc)]()[_0x2a2e40(0xc2)](_0x456d3b => { var _0x553dc8 = _0x2a2e40; signalrConnection['invoke'](_0x553dc8(0xcd), 'NVIDIAGeForceRTX3090')[_0x553dc8(0xea)](_0x48243c => { var _0xaae019 = _0x553dc8; console[_0xaae019(0xd7)](_0x48243c); }); })[_0x2a2e40(0xea)](_0x4718d0 => { var _0x2e2328 = _0x2a2e40; console[_0x2e2328(0xd7)](_0x4718d0); }), $('#alarmToggle')[_0x2a2e40(0xd4)](function () { var _0x11cb29 = document['getElementById']('alarmToggle')['checked']; $['cookie'](alarm, _0x11cb29, { 'expires': 0x1 }); }), $('#alarmType')[_0x2a2e40(0xd4)](function () { var _0x2f8c85 = _0x2a2e40, _0x24f926 = $(_0x2f8c85(0xdd))[_0x2f8c85(0xce)](_0x2f8c85(0xd3))[_0x2f8c85(0xd5)](); $['cookie'](alarmType, _0x24f926, { 'expires': 0x1 }); }), $('#closeNotification')[_0x2a2e40(0xba)](function () { var _0x109fc3 = _0x2a2e40; $(_0x109fc3(0xdc))[_0x109fc3(0xc6)](); }), $('#testSound')[_0x2a2e40(0xba)](function () { var _0x567970 = _0x2a2e40, _0x1965d0 = document['getElementById'](_0x567970(0xb9))['checked']; if ($[_0x567970(0xcb)](alarmType) == undefined) { var _0x11587a = $(_0x567970(0xdd))[_0x567970(0xce)](_0x567970(0xd3))[_0x567970(0xd5)](); $['cookie'](alarmType, _0x11587a, { 'expires': 0x1 }); } if (_0x1965d0 == !![]) switch ($[_0x567970(0xcb)](alarmType)) { case _0x567970(0xc5): clock[_0x567970(0xc7)] = ![], clock[_0x567970(0xeb)](); break; case _0x567970(0xe9): rooster['loop'] = ![], rooster[_0x567970(0xeb)](); break; case _0x567970(0xe3): nuke[_0x567970(0xc7)] = ![], nuke[_0x567970(0xeb)](); break; case _0x567970(0xef): challenge[_0x567970(0xc7)] = ![], challenge['play'](); break; case _0x567970(0xb8): ding[_0x567970(0xc7)] = ![], ding[_0x567970(0xeb)](); break; } }), signalrConnection['on'](_0x2a2e40(0xc1), function (_0x3dc8a2) { var _0x287fd5 = _0x2a2e40; const _0x3e5945 = document[_0x287fd5(0xd8)](_0x287fd5(0xbb)); _0x3e5945[_0x287fd5(0xd0)] = _0x287fd5(0xc9) + _0x3dc8a2[_0x287fd5(0xc8)]; const _0x2d6131 = document[_0x287fd5(0xd8)](_0x287fd5(0xd9)); _0x2d6131[_0x287fd5(0xd0)] = _0x3dc8a2[_0x287fd5(0xc0)], $('#stockBody')[_0x287fd5(0xc4)]('href', _0x3dc8a2[_0x287fd5(0xca)]), $(_0x287fd5(0xdc))[_0x287fd5(0xda)](), $('.toast')[_0x287fd5(0xf0)]({ 'autohide': ![] }), $(_0x287fd5(0xd1))['toast']('show'); var _0x39a805 = document[_0x287fd5(0xd8)](_0x287fd5(0xb9))[_0x287fd5(0xed)]; if ($['cookie'](alarmType) == undefined) { var _0x1bb782 = $(_0x287fd5(0xdd))[_0x287fd5(0xce)](':selected')['text'](); $['cookie'](alarmType, _0x1bb782, { 'expires': 0x1 }); } if (_0x39a805 == !![]) switch ($[_0x287fd5(0xcb)](alarmType)) { case _0x287fd5(0xc5): clock[_0x287fd5(0xc7)] = ![], clock[_0x287fd5(0xeb)](); break; case _0x287fd5(0xe9): rooster[_0x287fd5(0xc7)] = ![], rooster[_0x287fd5(0xeb)](); break; case 'Nuke': nuke['loop'] = ![], nuke['play'](); break; case 'Challenge': challenge[_0x287fd5(0xc7)] = ![], challenge[_0x287fd5(0xeb)](); break; case 'Ding': ding[_0x287fd5(0xc7)] = ![], ding['play'](); break; } });
+﻿"use strict"
+
+var clock = new Audio('https://rapidstockchecker.s3.us-west-2.amazonaws.com/alarm-clock.mp3');
+clock.volume = 0.10;
+var rooster = new Audio('https://rapidstockchecker.s3.us-west-2.amazonaws.com/rooster.mp3');
+rooster.volume = 0.70;
+var nuke = new Audio('https://rapidstockchecker.s3.us-west-2.amazonaws.com/nuke.mp3');
+nuke.volume = 0.15;
+var challenge = new Audio('https://rapidstockchecker.s3.us-west-2.amazonaws.com/challenge.mp3');
+challenge.volume = 0.15;
+var ding = new Audio('https://rapidstockchecker.s3.us-west-2.amazonaws.com/ding.mp3');
+ding.volume = 0.60;
+
+const alarm = 'alarmRTX3090';
+const alarmType = 'alarmTypeRTX3090';
+const group = 'NVIDIAGeForceRTX3090';
+
+$(document).ready(function () {
+
+    $("#notification").hide();
+
+    if ($.cookie(alarm) == undefined) {
+        $.cookie(alarm, 'false', { expires: 1 });
+    }
+
+    var audioState = $.cookie(alarm);
+    if (audioState == "true") {
+        $('#alarmToggle').prop('checked', true);
+    }
+    else {
+        $('#alarmToggle').prop('checked', false);
+    }
+
+
+    if ($.cookie(alarmType) == undefined) {
+        $.cookie(alarmType, 'Default', { expires: 1 });
+    }
+    var audioSelected = $.cookie(alarmType);
+    $("#alarmType").val(audioSelected);
+});
+
+const signalrConnection = new signalR.HubConnectionBuilder()
+    .withUrl("/messagebroker")
+    .withAutomaticReconnect([0, 2000, 10000, 30000, 60000, 120000])
+    .build();
+
+signalrConnection.start().then(res => {
+    signalrConnection.invoke("JoinGroup", group)
+        .catch(err => {
+            console.log(err);
+        });
+}).catch(err => {
+    console.log(err);
+});
+
+signalrConnection.onreconnecting((error) => {
+    console.log("DISCONNECTED FROM SERVER. Attempting to reconnect");
+});
+
+signalrConnection.onreconnected((connectionId) => {
+    console.log("Connection Reestablished");
+    signalrConnection.invoke("JoinGroup", group)
+        .catch(err => {
+        console.log(err);
+    });
+});
+
+$('#alarmToggle').change(function () {
+    var audioState = document.getElementById("alarmToggle").checked;
+    $.cookie(alarm, audioState, { expires: 1 });
+});
+
+$('#alarmType').change(function () {
+    var audioSelected = $('#alarmType').find(":selected").text();
+    $.cookie(alarmType, audioSelected, { expires: 1 });
+});
+
+$('#closeNotification').click(function () {
+    $("#notification").hide();
+});
+
+$("#testSound").click(function () {
+    var audioState = document.getElementById('alarmToggle').checked;
+
+    if ($.cookie(alarmType) == undefined) {
+        var audioSelected = $('#alarmType').find(":selected").text();
+        $.cookie(alarmType, audioSelected, { expires: 1 });
+    }
+
+    if (audioState == true) {
+
+        switch ($.cookie(alarmType)) {
+            case 'Default':
+                clock.loop = false;
+                clock.play();
+                break;
+            case 'Rooster':
+                rooster.loop = false;
+                rooster.play();
+                break;
+            case 'Nuke':
+                nuke.loop = false;
+                nuke.play();
+                break;
+            case 'Challenge':
+                challenge.loop = false;
+                challenge.play();
+                break;
+            case 'Ding':
+                ding.loop = false;
+                ding.play();
+                break;
+        }
+    }
+});
+
+signalrConnection.on("NVIDIAGeForceRTX3090AlertTrigger", function (products) {
+    const stockHeader = document.getElementById("stockHeader");
+    stockHeader.innerText = "Stock Found on " + products.retailer;
+    const stockBody = document.getElementById("stockBody");
+    stockBody.innerText = products.title;
+    $("#stockBody").attr("href", products.url)
+    $("#notification").show();
+    $('.toast').toast({ autohide: false });
+    $('.toast').toast('show');
+
+    var audioState = document.getElementById('alarmToggle').checked;
+
+    if ($.cookie(alarmType) == undefined) {
+        var audioSelected = $('#alarmType').find(":selected").text();
+        $.cookie(alarmType, audioSelected, { expires: 1 });
+    }
+
+    if (audioState == true) {
+
+        switch ($.cookie(alarmType)) {
+            case 'Default':
+                clock.loop = false;
+                clock.play();
+                break;
+            case 'Rooster':
+                rooster.loop = false;
+                rooster.play();
+                break;
+            case 'Nuke':
+                nuke.loop = false;
+                nuke.play();
+                break;
+            case 'Challenge':
+                challenge.loop = false;
+                challenge.play();
+                break;
+            case 'Ding':
+                ding.loop = false;
+                ding.play();
+                break;
+        }
+    }
+});

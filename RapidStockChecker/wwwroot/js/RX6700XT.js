@@ -1,1 +1,159 @@
-﻿'use strict'; var _0x227251 = _0x8f02; (function (_0x52660c, _0x24eaf6) { var _0x4bc5ad = _0x8f02, _0x2fd0b3 = _0x52660c(); while (!![]) { try { var _0xfc77b6 = -parseInt(_0x4bc5ad(0xaf)) / 0x1 + -parseInt(_0x4bc5ad(0xa2)) / 0x2 + parseInt(_0x4bc5ad(0xa6)) / 0x3 * (-parseInt(_0x4bc5ad(0xcd)) / 0x4) + parseInt(_0x4bc5ad(0xc0)) / 0x5 + parseInt(_0x4bc5ad(0xac)) / 0x6 + parseInt(_0x4bc5ad(0xc3)) / 0x7 + parseInt(_0x4bc5ad(0xd0)) / 0x8; if (_0xfc77b6 === _0x24eaf6) break; else _0x2fd0b3['push'](_0x2fd0b3['shift']()); } catch (_0x362354) { _0x2fd0b3['push'](_0x2fd0b3['shift']()); } } }(_0x34e6, 0x49e66)); var clock = new Audio('https://rapidstockchecker.s3.us-west-2.amazonaws.com/alarm-clock.mp3'); clock[_0x227251(0xb9)] = 0.1; var rooster = new Audio('https://rapidstockchecker.s3.us-west-2.amazonaws.com/rooster.mp3'); rooster[_0x227251(0xb9)] = 0.7; var nuke = new Audio(_0x227251(0xc5)); nuke[_0x227251(0xb9)] = 0.15; var challenge = new Audio(_0x227251(0xaa)); challenge[_0x227251(0xb9)] = 0.15; function _0x8f02(_0x3f9574, _0x34b731) { var _0x34e673 = _0x34e6(); return _0x8f02 = function (_0x8f0216, _0x5dc91b) { _0x8f0216 = _0x8f0216 - 0x96; var _0x3ca815 = _0x34e673[_0x8f0216]; return _0x3ca815; }, _0x8f02(_0x3f9574, _0x34b731); } var ding = new Audio(_0x227251(0xca)); ding[_0x227251(0xb9)] = 0.6; const alarm = 'alarmRX6700XT', alarmType = _0x227251(0xcb); $(document)[_0x227251(0xbe)](function () { var _0x37c3cd = _0x227251; $(_0x37c3cd(0xc9))[_0x37c3cd(0x9c)](); $[_0x37c3cd(0x99)](alarm) == undefined && $[_0x37c3cd(0x99)](alarm, _0x37c3cd(0xb6), { 'expires': 0x1 }); var _0x235ee2 = $[_0x37c3cd(0x99)](alarm); _0x235ee2 == 'true' ? $(_0x37c3cd(0x9e))[_0x37c3cd(0xb4)]('checked', !![]) : $('#alarmToggle')[_0x37c3cd(0xb4)]('checked', ![]); $[_0x37c3cd(0x99)](alarmType) == undefined && $['cookie'](alarmType, _0x37c3cd(0xb2), { 'expires': 0x1 }); var _0x330dcc = $[_0x37c3cd(0x99)](alarmType); $(_0x37c3cd(0x9f))[_0x37c3cd(0xbd)](_0x330dcc); }); const signalrConnection = new signalR['HubConnectionBuilder']()[_0x227251(0xa7)](_0x227251(0xc6))[_0x227251(0xc7)](); signalrConnection[_0x227251(0xba)]()['then'](_0x778f37 => { var _0x5b10cb = _0x227251; signalrConnection[_0x5b10cb(0x9d)](_0x5b10cb(0xce), _0x5b10cb(0xa4))[_0x5b10cb(0xb8)](_0x3393ea => { var _0x199b99 = _0x5b10cb; console[_0x199b99(0x98)](_0x3393ea); }); })[_0x227251(0xb8)](_0x42509b => { var _0x30357d = _0x227251; console[_0x30357d(0x98)](_0x42509b); }), $(_0x227251(0x9e))['change'](function () { var _0x14e399 = _0x227251, _0x573a70 = document[_0x14e399(0xb3)](_0x14e399(0xbb))[_0x14e399(0x96)]; $[_0x14e399(0x99)](alarm, _0x573a70, { 'expires': 0x1 }); }), $(_0x227251(0x9f))[_0x227251(0xa9)](function () { var _0x19fb59 = _0x227251, _0x5d93d2 = $('#alarmType')[_0x19fb59(0xcc)](_0x19fb59(0xc8))[_0x19fb59(0xc1)](); $[_0x19fb59(0x99)](alarmType, _0x5d93d2, { 'expires': 0x1 }); }), $(_0x227251(0xb5))[_0x227251(0xc2)](function () { $('#notification')['hide'](); }), $(_0x227251(0xb0))[_0x227251(0xc2)](function () { var _0x296f11 = _0x227251, _0xfd2bf5 = document['getElementById'](_0x296f11(0xbb))['checked']; if ($[_0x296f11(0x99)](alarmType) == undefined) { var _0x9d53e1 = $('#alarmType')[_0x296f11(0xcc)](_0x296f11(0xc8))['text'](); $[_0x296f11(0x99)](alarmType, _0x9d53e1, { 'expires': 0x1 }); } if (_0xfd2bf5 == !![]) switch ($['cookie'](alarmType)) { case _0x296f11(0xb2): clock[_0x296f11(0x9a)] = ![], clock[_0x296f11(0xb1)](); break; case 'Rooster': rooster[_0x296f11(0x9a)] = ![], rooster[_0x296f11(0xb1)](); break; case _0x296f11(0xbf): nuke[_0x296f11(0x9a)] = ![], nuke[_0x296f11(0xb1)](); break; case _0x296f11(0xd1): challenge[_0x296f11(0x9a)] = ![], challenge[_0x296f11(0xb1)](); break; case _0x296f11(0xb7): ding['loop'] = ![], ding['play'](); break; } }), signalrConnection['on'](_0x227251(0x97), function (_0x4780ca) { var _0x2c8756 = _0x227251; const _0xbbf15a = document[_0x2c8756(0xb3)](_0x2c8756(0xa0)); _0xbbf15a[_0x2c8756(0xbc)] = _0x2c8756(0xc4) + _0x4780ca[_0x2c8756(0xa5)]; const _0x37d7bf = document[_0x2c8756(0xb3)]('stockBody'); _0x37d7bf[_0x2c8756(0xbc)] = _0x4780ca[_0x2c8756(0xab)], $('#stockBody')[_0x2c8756(0xa3)](_0x2c8756(0x9b), _0x4780ca[_0x2c8756(0xa8)]), $(_0x2c8756(0xc9))['show'](), $('.toast')[_0x2c8756(0xcf)]({ 'autohide': ![] }), $(_0x2c8756(0xa1))['toast'](_0x2c8756(0xad)); var _0xed35e7 = document[_0x2c8756(0xb3)](_0x2c8756(0xbb))[_0x2c8756(0x96)]; if ($[_0x2c8756(0x99)](alarmType) == undefined) { var _0x2987a9 = $(_0x2c8756(0x9f))[_0x2c8756(0xcc)](_0x2c8756(0xc8))[_0x2c8756(0xc1)](); $[_0x2c8756(0x99)](alarmType, _0x2987a9, { 'expires': 0x1 }); } if (_0xed35e7 == !![]) switch ($[_0x2c8756(0x99)](alarmType)) { case _0x2c8756(0xb2): clock['loop'] = ![], clock[_0x2c8756(0xb1)](); break; case _0x2c8756(0xae): rooster[_0x2c8756(0x9a)] = ![], rooster[_0x2c8756(0xb1)](); break; case _0x2c8756(0xbf): nuke[_0x2c8756(0x9a)] = ![], nuke[_0x2c8756(0xb1)](); break; case 'Challenge': challenge['loop'] = ![], challenge[_0x2c8756(0xb1)](); break; case 'Ding': ding[_0x2c8756(0x9a)] = ![], ding[_0x2c8756(0xb1)](); break; } }); function _0x34e6() { var _0x27a951 = [':selected', '#notification', 'https://rapidstockchecker.s3.us-west-2.amazonaws.com/ding.mp3', 'alarmTypeRX6700XT', 'find', '18832VEFtmW', 'JoinGroup', 'toast', '3416600kCgIle', 'Challenge', 'checked', 'AMDRadeon6700XTAlertTrigger', 'log', 'cookie', 'loop', 'href', 'hide', 'invoke', '#alarmToggle', '#alarmType', 'stockHeader', '.toast', '844644kfmBDs', 'attr', 'AMDRadeon6700XT', 'retailer', '114hjRYjm', 'withUrl', 'url', 'change', 'https://rapidstockchecker.s3.us-west-2.amazonaws.com/challenge.mp3', 'title', '2400996BBMtOO', 'show', 'Rooster', '290691aujLYJ', '#testSound', 'play', 'Default', 'getElementById', 'prop', '#closeNotification', 'false', 'Ding', 'catch', 'volume', 'start', 'alarmToggle', 'innerText', 'val', 'ready', 'Nuke', '655970sNwWwh', 'text', 'click', '1653232DIZzda', 'Stock\x20Found\x20on\x20', 'https://rapidstockchecker.s3.us-west-2.amazonaws.com/nuke.mp3', '/messagebroker', 'build']; _0x34e6 = function () { return _0x27a951; }; return _0x34e6(); }
+﻿"use strict"
+
+var clock = new Audio('https://rapidstockchecker.s3.us-west-2.amazonaws.com/alarm-clock.mp3');
+clock.volume = 0.10;
+var rooster = new Audio('https://rapidstockchecker.s3.us-west-2.amazonaws.com/rooster.mp3');
+rooster.volume = 0.70;
+var nuke = new Audio('https://rapidstockchecker.s3.us-west-2.amazonaws.com/nuke.mp3');
+nuke.volume = 0.15;
+var challenge = new Audio('https://rapidstockchecker.s3.us-west-2.amazonaws.com/challenge.mp3');
+challenge.volume = 0.15;
+var ding = new Audio('https://rapidstockchecker.s3.us-west-2.amazonaws.com/ding.mp3');
+ding.volume = 0.60;
+
+const alarm = 'alarmRX6700XT';
+const alarmType = 'alarmTypeRX6700XT';
+const group = 'AMDRadeon6700XT';
+
+$(document).ready(function () {
+
+    $("#notification").hide();
+
+    if ($.cookie(alarm) == undefined) {
+        $.cookie(alarm, 'false', { expires: 1 });
+    }
+
+    var audioState = $.cookie(alarm);
+    if (audioState == "true") {
+        $('#alarmToggle').prop('checked', true);
+    }
+    else {
+        $('#alarmToggle').prop('checked', false);
+    }
+
+
+    if ($.cookie(alarmType) == undefined) {
+        $.cookie(alarmType, 'Default', { expires: 1 });
+    }
+    var audioSelected = $.cookie(alarmType);
+    $("#alarmType").val(audioSelected);
+});
+
+const signalrConnection = new signalR.HubConnectionBuilder()
+    .withUrl("/messagebroker")
+    .withAutomaticReconnect([0, 2000, 10000, 30000, 60000, 120000])
+    .build();
+
+signalrConnection.start().then(res => {
+    signalrConnection.invoke("JoinGroup", group)
+        .catch(err => {
+            console.log(err);
+        });
+}).catch(err => {
+    console.log(err);
+});
+
+signalrConnection.onreconnecting((error) => {
+    console.log("DISCONNECTED FROM SERVER. Attempting to reconnect");
+});
+
+signalrConnection.onreconnected((connectionId) => {
+    console.log("Connection Reestablished");
+    signalrConnection.invoke("JoinGroup", group)
+        .catch(err => {
+        console.log(err);
+    });
+});
+
+$('#alarmToggle').change(function () {
+    var audioState = document.getElementById("alarmToggle").checked;
+    $.cookie(alarm, audioState, { expires: 1 });
+});
+
+$('#alarmType').change(function () {
+    var audioSelected = $('#alarmType').find(":selected").text();
+    $.cookie(alarmType, audioSelected, { expires: 1 });
+});
+
+$('#closeNotification').click(function () {
+    $("#notification").hide();
+});
+
+$("#testSound").click(function () {
+    var audioState = document.getElementById('alarmToggle').checked;
+
+    if ($.cookie(alarmType) == undefined) {
+        var audioSelected = $('#alarmType').find(":selected").text();
+        $.cookie(alarmType, audioSelected, { expires: 1 });
+    }
+
+    if (audioState == true) {
+
+        switch ($.cookie(alarmType)) {
+            case 'Default':
+                clock.loop = false;
+                clock.play();
+                break;
+            case 'Rooster':
+                rooster.loop = false;
+                rooster.play();
+                break;
+            case 'Nuke':
+                nuke.loop = false;
+                nuke.play();
+                break;
+            case 'Challenge':
+                challenge.loop = false;
+                challenge.play();
+                break;
+            case 'Ding':
+                ding.loop = false;
+                ding.play();
+                break;
+        }
+    }
+});
+
+signalrConnection.on("AMDRadeon6700XTAlertTrigger", function (products) {
+    const stockHeader = document.getElementById("stockHeader");
+    stockHeader.innerText = "Stock Found on " + products.retailer;
+    const stockBody = document.getElementById("stockBody");
+    stockBody.innerText = products.title;
+    $("#stockBody").attr("href", products.url)
+    $("#notification").show();
+    $('.toast').toast({ autohide: false });
+    $('.toast').toast('show');
+
+    var audioState = document.getElementById('alarmToggle').checked;
+
+    if ($.cookie(alarmType) == undefined) {
+        var audioSelected = $('#alarmType').find(":selected").text();
+        $.cookie(alarmType, audioSelected, { expires: 1 });
+    }
+
+    if (audioState == true) {
+
+        switch ($.cookie(alarmType)) {
+            case 'Default':
+                clock.loop = false;
+                clock.play();
+                break;
+            case 'Rooster':
+                rooster.loop = false;
+                rooster.play();
+                break;
+            case 'Nuke':
+                nuke.loop = false;
+                nuke.play();
+                break;
+            case 'Challenge':
+                challenge.loop = false;
+                challenge.play();
+                break;
+            case 'Ding':
+                ding.loop = false;
+                ding.play();
+                break;
+        }
+    }
+});
