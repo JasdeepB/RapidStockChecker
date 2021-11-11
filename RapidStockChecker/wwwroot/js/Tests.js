@@ -124,7 +124,7 @@ signalrConnection.on("TestsAlertTrigger", function (products) {
     $('.toast').toast({ autohide: false });
     $('.toast').toast('show');
 
-    var audioState = document.getElementById('alarmToggle').checked;
+    var audioState = document.getElementById('alarmToggle').checked; 
 
     if ($.cookie(alarmType) == undefined) {
         var audioSelected = $('#alarmType').find(":selected").text();
