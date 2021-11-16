@@ -386,5 +386,33 @@ namespace RapidStockCheckerAPI.Controllers
 
             return NoContent();
         }
+
+        [HttpDelete("{SKU}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public IActionResult DeleteType(string SKU)
+        {
+            if (this.productRepository.ProductExists(SKU) == false)
+            {
+                return NotFound();
+            }
+
+            var productToDelete = this.productRepository.GetProduct(SKU);
+
+            if (ModelState.IsValid == false)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (this.productRepository.DeleteProduct(productToDelete) == false)
+            {
+                ModelState.AddModelError("", $"Something went wrong deleting {productToDelete.Title}");
+                return StatusCode(500, ModelState);
+            }
+
+            return NoContent();
+        }
     }
 }
