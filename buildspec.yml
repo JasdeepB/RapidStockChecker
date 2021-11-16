@@ -6,7 +6,7 @@ phases:
       - echo Logging into Amazon ECR...
       - aws --version
       - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 753728765258.dkr.ecr.us-west-2.amazonaws.com
-      - REPOSITORY_URI=753728765258.dkr.ecr.us-west-2.amazonaws.com/rapidstockcheckerapi
+      - REPOSITORY_URI=753728765258.dkr.ecr.us-west-2.amazonaws.com/rapidstockchecker
       - IMAGE_TAG=build-$(echo $CODEBUILD_ID | awk -F":" '{print $2}')
   build:
     commands:
@@ -20,7 +20,7 @@ phases:
       - echo Pushing the Docker image...
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
-      - printf '[{"name":"RapidStockCheckerAPI","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+      - printf '[{"name":"Rapid-Stock-Checker","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
       - cat imagedefinitions.json
 artifacts:
     files: imagedefinitions.json
