@@ -55,8 +55,9 @@ namespace RapidStockCheckerAPI
                                     {
                                         if (result.ItemsResult.Items[j].Offers.Listings[0].MerchantInfo.Name == "Amazon.com")
                                         {
-                                            if (result.ItemsResult.Items[j].Offers.Listings[0].Availability.Message == "In Stock."
-                                               || result.ItemsResult.Items[j].Offers.Listings[0].Availability.Type == "Backorderable")
+                                            if (result.ItemsResult.Items[j].Offers.Listings[0].Availability.Message == "In Stock." || 
+                                                result.ItemsResult.Items[j].Offers.Listings[0].Availability.Type == "Backorderable" ||
+                                                result.ItemsResult.Items[j].Offers.Listings[0].Availability.Type == "Preorderable")
                                             {
                                                 Product product = db
                                                     .Products
