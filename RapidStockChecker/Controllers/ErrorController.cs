@@ -14,7 +14,7 @@ namespace RapidStockChecker.Controllers
             switch (statusCode)
             {
                 case 404:
-                    ViewBag.ErrorMessage = "Sorry, the resource you are requesting is no longer available";
+                    ViewBag.ErrorMessage = "Sorry, the resource you are requesting could not be found";
                     break;
             }
 
