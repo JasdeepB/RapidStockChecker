@@ -76,7 +76,7 @@ namespace RapidStockChecker.WorkerServices
             {
                 try
                 {
-                    WebRequest request = WebRequest.Create("http://rapid-stock-checker-api-152477692.us-west-2.elb.amazonaws.com/Product/discord");
+                    WebRequest request = WebRequest.Create("http://rapid-stock-checker-product-api-349794647.us-west-2.elb.amazonaws.com/Product/discord");
                     WebResponse response = request.GetResponse();
 
                     using (Stream dateStream = response.GetResponseStream())
