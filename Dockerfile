@@ -6,17 +6,17 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["RapidStockCheckerAPI/RapidStockCheckerAPI.csproj", "RapidStockCheckerAPI/"]
+COPY ["RapidStockChecker/RapidStockChecker.csproj", "RapidStockChecker/"]
 COPY ["RSC.DataAccess/RSC.DataAccess.csproj", "RSC.DataAccess/"]
-RUN dotnet restore "RapidStockCheckerAPI/RapidStockCheckerAPI.csproj"
+RUN dotnet restore "RapidStockChecker/RapidStockChecker.csproj"
 COPY . .
-WORKDIR "/src/RapidStockCheckerAPI"
-RUN dotnet build "RapidStockCheckerAPI.csproj" -c Release -o /app/build
+WORKDIR "/src/RapidStockChecker"
+RUN dotnet build "RapidStockChecker.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "RapidStockCheckerAPI.csproj" -c Release -o /app/publish
+RUN dotnet publish "RapidStockChecker.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "RapidStockCheckerAPI.dll"]
+ENTRYPOINT ["dotnet", "RapidStockChecker.dll"]
