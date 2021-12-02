@@ -160,9 +160,13 @@ namespace RapidStockCheckerAPI
                                             .Products
                                             .Where(p => p.SKU == result.ItemsResult.Items[j].ASIN)
                                             .FirstOrDefault();
-                                        product.InStock = false;
-                                        db.Products.Update(product);
-                                        await db.SaveChangesAsync();
+
+                                        if (product.InStock == true)
+                                        {
+                                            product.InStock = false;
+                                            db.Products.Update(product);
+                                            await db.SaveChangesAsync();
+                                        }
                                     }
                                 }
                             }
