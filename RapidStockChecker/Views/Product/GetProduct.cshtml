@@ -12,6 +12,19 @@
             border-top: 10px solid rgba(0, 0, 0, 0.1);
             color: white;
         }
+        .btn-lg {
+            padding: 10px 20px;
+            font-size: 29px;
+            border-radius: 10px;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+        }
+        #productImage img.img-fluid {
+            max-width: 45%;
+            max-height: 45%;
+        }
     </style>
 </head>
 <body>
@@ -19,7 +32,9 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <br />
-                <img src="@Model.ImageUrl" class="img-fluid center-block d-block mx-auto" alt="Sample Image">
+                <div id="productImage">
+                    <img src="@Model.ImageUrl" class="img-fluid center-block d-block mx-auto" alt="Sample Image">
+                </div>
                 <br />
                 <h3 class="text-center">@Model.Title</h3>
                 <br />
