@@ -76,6 +76,7 @@ namespace RapidStockCheckerAPI.Controllers
                     Title = prod.Title,
                     ImageUrl = prod.ImageUrl,
                     Retailer = prod.Retailer,
+                    MSRP = prod.MSRP,
                     Url = prod.Url,
                     InStock = prod.InStock,
                     Type = GetTypeDto(this.productRepository.ProductType(prod.SKU)),
