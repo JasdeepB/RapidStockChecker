@@ -110,7 +110,6 @@ namespace RapidStockCheckerAPI
                                                     if (product.InStock == false && lowestPriceOnAmazon <= product.MSRP)
                                                     {
                                                         product.InStock = true;
-                                                        product.MSRP = lowestPriceOnAmazon;
                                                         db.Products.Update(product);
 
                                                         var type = db
