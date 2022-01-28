@@ -11,8 +11,8 @@ challenge.volume = 0.15;
 var ding = new Audio('https://rapidstockchecker.s3.us-west-2.amazonaws.com/ding.mp3');
 ding.volume = 0.60;
 
-const alarmType = 'alarmType';
-const group = 'Tests';
+const alarmType = 'alarmTypeRTX3050';
+const group = 'NVIDIAGeForceRTX3050';
 
 $(document).ready(function () {
 
@@ -95,9 +95,9 @@ $("#testSound").click(function () {
     }
 });
 
-signalrConnection.on("TestsAlertTrigger", function (products) {
+signalrConnection.on("PlayStation5AlertTrigger", function (products) {
     const stockHeader = document.getElementById("stockHeader");
-    stockHeader.innerText = "Stock Found on " + products.retailer + " for $" + products.msrp;
+    stockHeader.innerText = "Stock Found on " + products.retailer;
     const stockBody = document.getElementById("stockBody");
     stockBody.innerText = products.title;
     $("#stockBody").attr("href", products.url)

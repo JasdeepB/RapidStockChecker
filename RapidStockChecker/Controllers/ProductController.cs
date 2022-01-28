@@ -88,6 +88,11 @@ namespace RapidStockChecker.Controllers
             return View(GetPageResoucesByTypeId(21));
         }
 
+        public IActionResult RTX3050()
+        {
+            return View(GetPageResoucesByTypeId(23));
+        }
+
         //EXAMPLE
         //http://localhost:63763/Product/GetProduct/SKU?SKU=B07GBZ4Q68
         [HttpGet()]
