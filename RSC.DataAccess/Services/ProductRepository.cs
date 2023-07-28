@@ -28,7 +28,7 @@ namespace RSC.DataAccess.Services
 
         public async Task<Product> CreateAmazonProduct(string SKU, int discordId, int typeId)
         {
-            var authentication = new AmazonAuthentication("AKIAJVMZ5BI4GYNFNJYQ", "61plkh/hS7ltiwS24FiQWJQBBo/Fb6vvis2wO4QO");
+            var authentication = new AmazonAuthentication("", "");
             var client = new AmazonProductAdvertisingClient(authentication, AmazonEndpoint.US, "rapidstockche-20");
             string[] ASIN = { SKU };
             Product product = new Product();
